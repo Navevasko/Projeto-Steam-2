@@ -32,10 +32,78 @@ header {
 }
 
 nav {
+    display: flex;
+    flex-direction: row;
+    gap: 125px;
     width: inherit;
-    height: 100px;
+    height: 125px;
     background-color: var(--nav-background);
     position: fixed;
+    padding-left: 100px;
+    padding-bottom: 25px;
+}
+
+#logo {
+    padding-top: 10px;
+    width: 150px;
+    height: fit-content;
+}
+
+#logo img {
+    width: 150px;
+    height: 100px;
+}
+
+#menu {
+    width: fit-content;
+    height: 125px;
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 50 10 0 10px;
+    gap: 50px;
+}
+
+#menu-container li {
+    text-align: center;
+    list-style: none;
+    font-size: 1.5em;
+    transition: 1s;
+    color: var(--primary);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+#menu-container li:hover {
+    transition: .5s;
+    border-bottom: 1px solid cornsilk;
+    color: cornsilk;
+    cursor: pointer;
+}
+
+#redes-sociais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 250px;
+    height: inherit;
+}
+
+#redes-sociais img{
+    width: 50px;
+    height: 100px;
+    color: #FFF;
+    transition: .7s;
+}
+
+#redes-sociais img:hover {
+    color: #ffff;
+    transition: .7s;
+    transform: scale(110%);
 }
 
 #banner {
@@ -106,6 +174,14 @@ main {
     height: 500px;
     border-radius: 10px;
     background-color: var(--card-background);
+    filter: grayscale(100%);
+    transition: .8s;
+}
+
+.produto:hover {
+    transition: .8s;
+    filter: grayscale(0%);
+    transform: scale(110%);
 }
 
 .produto img {
