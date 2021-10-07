@@ -6,12 +6,17 @@
 
 :root {
     font-family: 'Rubik', sans-serif;
-    --primary: #f46507;
-    --primary-light: #ff9641;
-    --primary-dark: #ba3400;
-    --card-background: #ff7a2286;
-    --nav-background:#77391098;
-    --button-background: #eb8948;
+    --primary: #24343a;
+    --primary-light: #628d8f;
+    --primary-dark: #3c948c;
+    --main-background: #2d4047c9;
+    --text-color: #a7b298;
+    --card-container-background: #24343a;
+    --card-background: #415c66ef;
+    --scroll-background: #415c66ef;
+    --nav-background:#24343ae5;
+    --search-background: #24343ad8;
+    --button-background: #537b8aef;
 }
 
 body::-webkit-scrollbar {
@@ -19,11 +24,11 @@ body::-webkit-scrollbar {
 }
   
 body::-webkit-scrollbar-track {
-    background: orange;
+    background: var(--search-background);
 }
   
 body::-webkit-scrollbar-thumb {
-    background-color: blue;
+    background-color: var(--button-background);
     border-radius: 20px;
 }
 
@@ -34,12 +39,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
 }
 
 header {
     width: 100%;
     height: 700px;
-    background-color: burlywood;
 }
 
 
@@ -52,12 +61,13 @@ header {
     min-height: 8vh;
     position: fixed;
     transition: 0.3s;
+    z-index: 999;
     background-color: rgba(180, 132, 69, 0);
 }
 
 .nav-alt {
     transition: 0.5s;
-    background-color: rgb(180, 132, 69);
+    background-color: var(--nav-background);
   }
 
 #logo img {
@@ -91,7 +101,8 @@ header {
 .menu a:hover {
     transition: 0.5s;
     transform: scale(110%);
-    border-bottom: 1px white solid;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
 }
 
 #social-icons {
@@ -104,7 +115,6 @@ header {
 
 #social-icons li {
     font-size: 1.2em;
-    color: white;
     text-decoration: none;
 }
 
@@ -127,12 +137,7 @@ header {
 
 #banner {
     width: 100%;
-    height: 700px;
-    background-image: url(../img/slide/slide1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
+    
 }
 
 
@@ -142,23 +147,134 @@ main {
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-    gap: 50px;
     width: 95%;
+    gap: 45px;
+    background-color: var(--main-background);
     min-height: 1000px;
-    background-color: burlywood;
 }
 
 #container-produtos {
     width: 100%;
     min-height: 700px;
-    background-color: khaki;
     max-height: auto;
 }
 
 #search-bar {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 5px 10px 5px 10px;
     width: inherit;
     height: 65px;
-    background-color: lightcoral;
+    background-color: var(--search-background);
+}
+
+#caixaMenu {
+    padding-top: 15px;
+    width: 150px;
+    height: inherit;
+    background-color: var(--menu-color);
+    text-align: center;
+    font-size: 1.5em;
+    transition: .5s;
+    color: var(--text-color);
+}
+
+#caixaMenu:hover {
+    transition: .5s;
+}
+
+#caixaMenu:hover > #caixaSubMenu {
+    opacity: 1;
+    visibility: visible;
+    transition: 1s;
+    margin-left: 125px;
+    position: absolute;
+}
+
+
+#caixaSubMenu {
+    width: 1025px;
+    height: 90px;
+    margin-left: 50px;
+    padding-top: 8px;
+    list-style: none;
+    margin-top: -60px;
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--second-color);
+    transition: 1s;
+}
+
+#subMenu {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    height: 90px;
+}
+
+#subMenu a{
+    text-decoration: none;
+    color: black;
+}
+
+.itemSubMenu {
+    width: 205px;
+    height: 90px;
+    list-style: none;
+    padding-top: 24px;
+    transition: .5s;
+}
+
+.itemSubMenu:hover {
+    color: var(--text-color);
+    transform: scale(110%);
+    transition: .5s;
+}
+
+
+#search {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+#search form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+#search input {
+    width: 250px;
+    height: 30px;
+    outline: unset;
+    font-size: 1.2em;
+    padding-left: 5px;
+    border-radius: 15px;
+    border:unset;
+    outline: unset;
+    background-color: var(--primary-light);
+}
+
+#search button {
+    width: 50px;
+    height: 50px;
+    background-color: unset;
+    border: unset;
+    outline: unset;
+}
+
+#search button img {
+    width: 40px;
+    height: 40px;
+}
+
+#search button:hover {
+    cursor: pointer;
 }
 
 #card-produtos {
@@ -171,7 +287,7 @@ main {
     width: inherit;
     padding: 50px 0px;
     height: fit-content;
-    background-color: dimgray;
+    background-color: var(--card-container-background);
 }
 
 .produto {
@@ -183,13 +299,11 @@ main {
     height: 500px;
     border-radius: 10px;
     background-color: var(--card-background);
-    filter: grayscale(100%);
     transition: .8s;
 }
 
 .produto:hover {
     transition: .8s;
-    filter: grayscale(0%);
     transform: scale(110%);
     position: static;
 }
@@ -291,17 +405,13 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 35px;
     height: 525px;
+    background-color: var(--card-container-background);
 }
 
 #nome-empresa {
-    width: inherit;
-    text-align: center;
-    font-size: 1.5em;
-    padding: 5px;
+    width: 100%;;
     height: 50px;
-    background-color: dimgray;
 }
 
 #empresa-text {
@@ -309,7 +419,6 @@ main {
     align-items: center;
     width: 100%;
     height: 460px;
-    background-color: dimgray;
 }
 
 #sobre-empresa {
@@ -326,7 +435,8 @@ main {
 }
 
 #sobre-empresa p {
-    font-size: 1.4em;
+    font-size: 1.8em;
+    color: var(--text-color);
 }
 
 #empresa-text img {
@@ -337,19 +447,9 @@ main {
 #container-promocoes {
     width: 100%;
     min-height: 700px;
-    background-color: khaki;
     max-height: auto;
 }
 
-#container-promocoes h2 {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 50px;
-    text-decoration: underline;
-    font-size: 2em;
-}
 
 .diferenca-preco {
     display: flex;
@@ -370,15 +470,164 @@ main {
     text-decoration: line-through;
 }
 
+#container-destaques {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    height: 500px;
+    background-color: var(--card-container-background);
+}
+h2 {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    background-color: var(--card-container-background);
+    color: var(--text-color);
+    text-decoration: underline;
+    font-size: 2em;
+}
+
+#card-destaques {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 350px;
+
+}
+
+#card-destaques h3 {
+    text-align: center;
+    font-size: 1.8em;
+    font-family: 'Inter';
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+#card-destaques img {
+    width: 250px;
+    height: 250px;
+    border-radius: 150px;
+}
+
+#container-lojas {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-container-background);
+    width: 100%;
+    height: 600px;
+}
+
+#container-lojas-contatos {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: inherit;
+}
+
+#lojas {
+    width: 50%;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: inherit;
+}
+
+.loja {
+    border: 3px solid var(--primary-dark);
+    border-radius: 10px;
+    padding: 10px;
+    width: 910px;
+    height: 235px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.loja h3 {
+    font-size: 1.4em;
+    color: var(--text-color);
+}
+
+.loja-local {
+    width: 750px;
+    display: flex;
+    gap: 15px;
+    height: 175px;
+    padding: 10px;
+}
+
+.loja-local img {
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+}
+
+.loja-local p {
+    color: var(--text-color);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#contatos {
+    width: 50%;
+    height: inherit;
+}
+
+#contatos form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#contatos label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+#contatos input {
+    width: 300px;
+    height: 35px;
+    border-radius: 10px;
+    outline: unset;
+    background-color: var(--primary-light);
+    border: unset;
+    margin-bottom: 50px;
+    font-size: 1em;
+    padding-left: 10px;
+}
+
+#contatos button {
+    width: 150px;
+    height: 40px;
+    outline: unset;
+    font-size: 1.2em;
+    color: var(--text-color);
+    border: unset;
+    border-radius: 10px;
+    background-color: var(--button-background);
+}
+
 
 footer {
+    border-top: 2px solid var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2em;
-    width: 100%;
+    width: 95%;
     height: 40px;
-    background-color: rgb(255, 1, 1);
+    background-color: var(--card-container-background);
 }
 
 
@@ -436,7 +685,7 @@ footer {
         right: -3vw;
         height: 92vh;
         top: 10vh;
-        background-color: rgb(180, 132, 69);
+        background-color: rgba(0, 0, 0, 0.555);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -448,6 +697,10 @@ footer {
 
     .menu li{
         opacity: 0;
+    }
+
+    .menu a {
+        color: white;
     }
 
     #social-icons {
