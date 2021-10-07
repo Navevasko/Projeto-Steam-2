@@ -1,145 +1,280 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="pt-br">
-
     <head>
-        <title> Projetinho ein familia arrasta pra cima!! </title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/style.css" >
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/jpg" href="img/logo.png"/>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&family=Lora&family=Nanum+Gothic:wght@400;700&family=PT+Sans:ital@0;1&family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <script src="js/script.js" defer></script>
+        <title>Projeto</title>
     </head>
-    
     <body>
-    
         <header>
-        
-            <nav>
+            <nav class="nav-menu">
                 <div id="logo">
-                    <img src="img/logo_transparent.png" alt="">
+                    <a href="#logo"><img src="img/logo.png" alt=""></a>
                 </div>
-                <div id="menu">
-                    <ul id="menu-container">
-                        <li>A empresa</li>
-                        <li>Lojas</li>
-                        <li>Promoções</li>
-                        <li>Destaques</li>
-                        <li>Contatos</li>
-                    </ul>
-                </div>
-                <div id="redes-sociais">
-                    <img src="img/icons/bxl-facebook.svg" alt="">
-                    <img src="img/icons/bxl-instagram.svg" alt="">
-                    <img src="img/icons/bxl-twitter.svg" alt="">
-                </div>
-            </nav>
 
+                <ul class="menu">
+                    <li><a href="#"> A empresa </a></li>
+                    <li><a href="#"> Lojas </a></li>
+                    <li><a href="#"> Promoções </a></li>
+                    <li><a href="#"> Destaques </a></li>
+                    <li><a href="#"> Contatos </a></li>
+                </ul>
+
+                <div class="nav-burguer">
+                    <div class="linha"></div>
+                    <div class="linha"></div>
+                    <div class="linha"></div>
+                </div>
+
+                <ul id="social-icons">
+                    <li><a href="#">
+                        <img src="img/icons/facebook.svg" alt="">
+                    </a></li>
+                    <li><a href="#">
+                        <img src="img/icons/instagram.svg" alt="">
+                    </a></li>
+                    <li><a href="#">
+                        <img src="img/icons/twitter.svg" alt="">
+                    </a></li>
+                </ul>
+            </nav>
             <div id="banner"></div>
-        
         </header>
-        
+
         <main>
-            <div id="conteudo-main">
-                <section id="conteudo-produtos">
-                    <div id="search-bar"></div>
-                    <div id="container-produtos">
-                        <div class="produto">
-                            <img src="img/game-img/dishonored2.jpg" alt="">
-                            <div class="produto-texto">
-                                <h4>Dishonored 2</h4>
-                                <p>Genero: Furtividade Ação Aventura </p>
+            <div id="container-produtos">
+                <div id="search-bar"></div>
+                <div id="card-produtos">
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
                                 <p>Data de Lançamento: 11 de novembro de 2016 </p>
                                 <p>Desenvolvedora: Arkane Studios </p>
-                            </div>
-                            <div class="preco-botao">
-                                <div class="comprar">
-                                    <button><img src="img/icons/bx-cart.svg" alt="">Comprar</button>
-                                </div>
-                                <div class="preco">R$ 73,47</div>
-                            </div>
                         </div>
-                        <div class="produto">
-                            <img src="img/game-img/residentEvil.jpg" alt="">
-                            <div class="produto-texto">
-                                <h4>Resident Evil Village</h4>
-                                <p>Genero: Survival Horror, Aventura </p>
-                                <p>Data de Lançamento: 7 de maio de 2021 </p>
-                                <p>Desenvolvedora: Capcom </p>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
                             </div>
-                            <div class="preco-botao">
-                                <div class="comprar">
-                                    <button><img src="img/icons/bx-cart.svg" alt="">Comprar</button>
-                                </div>
-                                <div class="preco">R$ 199,99</div>
-                            </div>
-                        </div>
-                        <div class="produto">
-                            <img src="img/game-img/cyberpunk2077.jpg" alt="">
-                            <div class="produto-texto">
-                                <h4>Cyberpunk 2077</h4>
-                                <p>Genero: RPG, Aventura, Tiro, Luta </p>
-                                <p>Data de Lançamento: 17 de setembro de 2020 </p>
-                                <p>Desenvolvedora: CD Projekt RED </p>
-                            </div>
-                            <div class="preco-botao">
-                                <div class="comprar">
-                                    <button><img src="img/icons/bx-cart.svg" alt="">Comprar</button>
-                                </div>
-                                <div class="preco">R$ 79,90</div>
-                            </div>
-                        </div>
-                        <div class="produto">
-                            <img src="img/game-img/dishonored2.jpg" alt="">
-                            <div class="produto-texto">
-                                <h4>Dishonored 2</h4>
-                                <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                            </div>
-                            <div class="preco-botao">
-                                <div class="comprar">
-                                    <button><img src="img/icons/bx-cart.svg" alt="">Comprar</button>
-                                </div>
-                                <div class="preco">R$ 73,47</div>
-                            </div>
-                        </div>
-                        <div class="produto">
-                            <img src="img/game-img/dishonored2.jpg" alt="">
-                            <div class="produto-texto">
-                                <h4>Dishonored 2</h4>
-                                <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                            </div>
-                            <div class="preco-botao">
-                                <div class="comprar">
-                                    <button><img src="img/icons/bx-cart.svg" alt="">Comprar</button>
-                                </div>
-                                <div class="preco">R$ 73,47</div>
-                            </div>
-                        </div>
-                        <div class="produto">
-                            <img src="img/game-img/dishonored2.jpg" alt="">
-                            <div class="produto-texto">
-                                <h4>Dishonored 2</h4>
-                                <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                            </div>
-                            <div class="preco-botao">
-                                <div class="comprar">
-                                    <button><img src="img/icons/bx-cart.svg" alt="">Comprar</button>
-                                </div>
-                                <div class="preco">R$ 73,47</div>
+                            <div class="preco">
+                                <p>R$999,99</p>
                             </div>
                         </div>
                     </div>
-                </section>
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+                            <div class="preco">
+                                <p>R$999,99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+                            <div class="preco">
+                                <p>R$999,99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+                            <div class="preco">
+                                <p>R$999,99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+                            <div class="preco">
+                                <p>R$999,99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+                            <div class="preco">
+                                <p>R$999,99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
-        
-        <footer>Copyright © 2021 | Guilherme Navevaiko</footer>
-    
-    </body>
 
+            <div id="container-empresa">
+                <div id="nome-empresa">
+                    <h2> Garden Of Games </h2>
+                </div>
+                <div id="empresa-text">
+                    <div id="sobre-empresa">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam sequi animi quis. Doloribus culpa voluptatem laborum beatae commodi, nam asperiores minima, eveniet esse dolor laudantium. Sapiente explicabo corrupti impedit maxime! Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam sequi animi quis. Doloribus culpa voluptatem laborum beatae commodi, nam asperiores minima, eveniet esse dolor laudantium.</p>
+                    </div>
+                        <img src="img/logo.png" alt="">
+                </div>
+            </div>
+
+            <div id="container-promocoes">
+                <h2> Nossas Promoções </h2>
+                <div id="card-produtos">
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+                            <div class="diferenca-preco">
+                                <div class="preco-antigo">
+                                    <p>R$999,99</p>
+                                </div>
+
+                                <div class="preco">
+                                    <p>R$999,99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+
+                            <div class="diferenca-preco">
+                                <div class="preco-antigo">
+                                    <p>R$999,99</p>
+                                </div>
+
+                                <div class="preco">
+                                    <p>R$999,99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="produto">
+                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <div class="texto-produto">
+                            <h3>Dishonored 2</h3>
+                            <p>Genero: Furtividade Ação Aventura </p>
+                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
+                                <p>Desenvolvedora: Arkane Studios </p>
+                        </div>
+                        <div class="button-preco">
+                            <div class="saiba-mais">
+                                <button>
+                                    <img src="img/icons/bx-cart.svg" alt="">
+                                    Saiba mais
+                                </button>
+                            </div>
+                            <div class="diferenca-preco">
+                                <div class="preco-antigo">
+                                    <p>R$999,99</p>
+                                </div>
+
+                                <div class="preco">
+                                    <p>R$999,99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </main>
+
+        <footer>Copyright © 2021 | Guilherme Navevaiko</footer>
+    </body>
 </html>
