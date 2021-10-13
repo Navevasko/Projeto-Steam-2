@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Rubik', sans-serif;
+    --primary: #24343a;
+    --primary-light: #628d8f;
+    --primary-dark: #3c948c;
+    --main-background: #2d4047c9;
+    --text-color: #a7b298;
+    --card-container-background: #24343a;
+    --card-background: #415c66ef;
+    --scroll-background: #415c66ef;
+    --nav-background:#24343ae5;
+    --search-background: #24343ad8;
+    --button-background: #537b8aef;
+}
+
+body {
+    width: 100%;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 35px
+}
+
+#login {
+    border: 3px solid var(--primary-light);
+    border-radius: 15px;
+    width: 550px;
+    height: 500px;
+    padding: 25px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary)
+}
+
+#login .caixa-input {
+    display: flex;
+    gap:15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 75px;
+}
+
+#login input[type=text], input[type=password]{
+    border-radius: 15px;
+    background-color: var(--button-background);
+    border: unset;
+    width: 350px;
+    height: 30px;
+    font-size: 1.2em;
+    text-align: center
+}
+
+#login input[type=submit] {
+    border-radius: 15px;
+    background-color: var(--button-background);
+    border: unset;
+    width: 200px;
+    height: 35px;
+    color: var(--text-color);
+    font-size: 1.2em;
+}
+
+#login label {
+    color: var(--text-color);
+    font-size: 1.5em
+}
