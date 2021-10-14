@@ -23,6 +23,8 @@ if(isset($_POST['btnLogin'])) {
     <body>
     
         <div id="login">
+            
+            <h1> Login </h1>
         
             <form method="post" name="frmLogin">
             
@@ -36,7 +38,9 @@ if(isset($_POST['btnLogin'])) {
                 <input type="password" name="txtSenha">
                 </div>
                 
-                <input type="submit" name="btnLogin" value="Login">
+                <a href="dashboard.html">
+                <input type="button" name="btnLogin" value="Login">
+                </a>
             
             </form>
         

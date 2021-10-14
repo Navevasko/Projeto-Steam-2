@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" type="image/jpg" href="img/logo.png"/>
-        <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-        <title>DashBoard</title>
-    </head>
-    <body>
-        
+
+
+
         <header>
 
             <div id="container-nome-projeto">
@@ -33,46 +24,33 @@
             <nav>
                 <div id="container-categorias">
                     <div class="categoria">
-                        <img src="img/logo.png" alt="">
+                        <img src="img/icons/product.png" alt="">
                         <p>Adm. de Produtos</p>
                     </div>
 
                     <div class="categoria">
-                        <img src="img/logo.png" alt="">
+                        <img src="img/icons/category.png" alt="">
                         <p>Adm. de Categorias</p>
                     </div>
 
                     <div class="categoria">
-                        <img src="img/logo.png" alt="">
+                        <img src="img/icons/contact.png" alt="">
                         <p>Contatos</p>
                     </div>
 
                     <div class="categoria">
-                        <img src="img/logo.png" alt="">
+                        <img src="img/icons/user.png" alt="">
                         <p>Usuarios</p>
                     </div>
                 </div>
                 
                 <div id="container-usuario">
                     <p>Bem vindo "Usuário"</p>
-                    <img src="img/logo.png" alt="">
+                    <img src="img/icons/user-icon.png" alt="">
                     <a href="">Logout</a>
                 </div>
             </nav>
             
         </header>
 
-        <main>
 
-            <div id="titulo">
-
-                <h1>Titulo da Sessão</h1>
-
-            </div>
-            
-        </main>
-
-        <footer>Copyright © 2021 | Guilherme Navevaiko</footer>
-
-    </body>
-</html>

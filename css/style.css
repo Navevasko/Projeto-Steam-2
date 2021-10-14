@@ -304,7 +304,7 @@ main {
 
 .produto:hover {
     transition: .8s;
-    transform: scale(110%);
+    transform: scale(105%);
     position: static;
 }
 

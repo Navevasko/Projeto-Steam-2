@@ -47,12 +47,17 @@ form {
     width: 550px;
     height: 500px;
     padding: 25px;
-    flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: var(--primary)
+}
+
+#login h1 {
+    font-size: 2.5em;
+    color: var(--text-color);
+    font-weight: bold;
 }
 
 #login .caixa-input {
@@ -75,7 +80,7 @@ form {
     text-align: center
 }
 
-#login input[type=submit] {
+#login input[type=button] {
     border-radius: 15px;
     background-color: var(--button-background);
     border: unset;
