@@ -1,34 +1,3 @@
-<?php
-
-$nome = (string) null;
-$desenvolvedora = (string) null;
-$data = (string) null;
-$preco = (float) null;
-
-
-if(isset($_POST['btnSubmit'])) {
-
-    if($_POST['txtNome'] != "" && $_POST['txtDes'] != "" && $_POST['txtDate'] != "" && $_POST['txtPreco'] != "") { 
-
-    $nome = $_POST['txtNome'];
-    $desenvolvedora = $_POST['txtDes'];
-    $data = $_POST['txtDate'];
-    $preco = $_POST['txtPreco'];
-
-    echo($nome);
-    echo($desenvolvedora);
-    echo($data);
-    echo($preco);
-
-    }
-    else {
-        echo("ERRO");
-    }
-
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -37,7 +6,7 @@ if(isset($_POST['btnSubmit'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" type="image/jpg" href="img/logo.png"/>
         <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-        <title>Administração de Produtos</title>
+        <title>Administração de Usuários</title>
     </head>
     <body>
         
@@ -47,7 +16,7 @@ if(isset($_POST['btnSubmit'])) {
 
         <main>
             
-            <h1> Administração de Produtos </h1>
+            <h1> Administração de Usuários </h1>
 
             <div id="container-adm">
 
@@ -56,31 +25,18 @@ if(isset($_POST['btnSubmit'])) {
                     <div id="campo-container">
                         <div class="campo">
                             <div class="nome-campo">
-                                <label>Nome:</label>
+                                <label>Usuário:</label>
                             </div>
                             <input type="text" name="txtNome">
                         </div>
 
                         <div class="campo">
                             <div class="nome-campo">
-                                <label>Desenvolvedora:</label>
+                                <label>Senha:</label>
                             </div>
                             <input type="text" name="txtDes">
                         </div>
 
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Ano Lançamento:</label>
-                            </div>
-                            <input type="text" name="txtDate">
-                        </div>
-
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Preço:</label>
-                            </div>
-                            <input type="text" name="txtPreco">
-                        </div>
                     </div>
 
                     <input type="submit" value="Salvar" name="btnSubmit">
@@ -98,7 +54,7 @@ if(isset($_POST['btnSubmit'])) {
                 <tr id="tblLinhas">
                     <td class="tblColunas destaque"> Id </td>
                     <td class="tblColunas destaque"> Nome </td>
-                    <td class="tblColunas destaque"> Preço </td>
+                    <td class="tblColunas destaque"> Senha </td>
                     <td class="tblColunas destaque"> Opções </td>
                 </tr>
                 

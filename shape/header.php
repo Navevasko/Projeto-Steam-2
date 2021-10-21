@@ -23,25 +23,35 @@
 
             <nav>
                 <div id="container-categorias">
-                    <div class="categoria">
-                        <img src="img/icons/product.png" alt="">
-                        <p>Adm. de Produtos</p>
-                    </div>
+                        <div class="categoria">
+                            <img src="img/icons/product.png" alt="">
+                            <a href="produtos.php">
+                                Adm. de Produtos
+                            </a>
+                        </div>
 
-                    <div class="categoria">
-                        <img src="img/icons/category.png" alt="">
-                        <p>Adm. de Categorias</p>
-                    </div>
+                        <div class="categoria">
+                            <img src="img/icons/category.png" alt="">
+                            <a href="categorias.php">
+                                Adm. de Categorias
+                            </a>
+                        </div>
 
-                    <div class="categoria">
-                        <img src="img/icons/contact.png" alt="">
-                        <p>Contatos</p>
-                    </div>
+                        <div class="categoria">
+                            <img src="img/icons/contact.png" alt="">
+                            <a href="contatos.php">
+                                Contatos
+                            </a>
+                        </div>
 
-                    <div class="categoria">
-                        <img src="img/icons/user.png" alt="">
-                        <p>Usuarios</p>
-                    </div>
+                    
+                        <div class="categoria">
+                            <img src="img/icons/user.png" alt="">
+                            <a href="usuarios.php">
+                                Usuarios
+                            </a>
+                        </div>
+                    
                 </div>
                 
                 <div id="container-usuario">

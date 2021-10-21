@@ -1,17 +1,19 @@
 <?php
 
-function conexaoMySQL() {
+require_once('functions/config.php');
+
+function conexaoMysql () {
     $server = (string) BD_SERVER;
     $user = (string) BD_USER;
     $password = (string) BD_PASSWORD;
     $database = (string) BD_DATABASE;
-
-    if ($conexao = mysqli_connect($server, $user, $password, $database)) {
+    
+    if($conexao = mysqli_connect($server, $user, $password, $database)) {
         return $conexao;
     }
     else {
-        echo(ERRO_CONEXAO);
-        return false
+        echo(ERRO_CONEXAO_BD);
+        return false;
     }
 }
 

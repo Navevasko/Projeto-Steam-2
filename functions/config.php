@@ -1,18 +1,25 @@
 <?php
 
-    define ('SRC', $_SERVER['DOCUMENT_ROOT']. '/Back-end/Projeto-Steam-2/produtos.php/');
+    define ('SRC', $_SERVER['DOCUMENT_ROOT'] . '/ds2t20212/Guilherme/Projeto/Projeto-Steam-2/');
 
     const BD_SERVER = 'localhost';
     const BD_USER = 'root';
     const BD_PASSWORD = 'bcd127';
-    const BD_DATABASE = 'db_projeto_2021_2t';
+    const BD_DATABASE = 'dbprojeto20212t';
 
-    const ERRO_CONEXAO = 'Não foi possivel realizar a conexão com o Banco de Dados, por favor entre em contato com o administrador do sistemas';
-    const ERRO_CAIXA_VAZIA = 'Não foi possível realizar a operação, pois existem campos obrigatórios a serem preenchidos';
-    const ERRO_MAXLENGTH = 'Não foi possível realizar a operação, pois a quantidade de caracteres ultrapassou o limite.';
+    //mensagens de erro
+    const ERRO_CONEXAO_BD = "<script>alert('Não foi possivel realizar a conexão com o Banco de Dados, entre em contato com o Administrador do sistema.'); window.location.href='../dashboard.php';</script>";
 
-    const BD_INSERIDO = 'Registro salvo com sucesso no Banco de Dados!!';
-    const BD_ERRO = 'ERRO: Não foi possivel manipular os dados no Banco de Dados';
-    const BD_EXCLUIDO = 'Registro excluído com sucesso!!';
+    const ERRO_CAIXA_VAZIA = "<script>alert('Não foi possivel realizar a operação, pois existem campos obrigatorios que não foram preenchidos'); window.location.href='../dashboard.php';</script>";
+
+    const ERRO_MAXLENGHT = "<script>alert('Não foi possível realizar a operação, pois a quantidade de cartacteres ultrapassa o permitido no banco de dados'); window.location.href='../dashboard.php';</script>";
+
+    //Mensagens de aceitação e validação de dados no banco    
+    const BD_MSG_INSERIR = "Registro salvo com sucesso";
+
+    const BD_MSG_ERRO = "<script>alert('Não foi possivel manipular os dados no Banco de Dados'); window.location.href='../dashboard.php';</script>";
+
+    const BD_MSG_EXCLUIR = "<script>alert('Registro excluido com sucesso'); window.location.href='dashboard.php';</script>";
+
 
 ?>
