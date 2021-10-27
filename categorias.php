@@ -1,8 +1,20 @@
 <?php
 
+session_start();
+
 require_once('bd/conexaoMySQL.php');
 require_once('controller/recebeCategoria.php');
+require_once('controller/exibeItens.php');
 
+$id = (int) 0;
+$nome = (string) null;
+
+$modo = (string) 'Salvar';
+
+if(isset($_SESSION['categoria'])) {
+    $id = $_SESSION['categoria']['idCategoria'];
+    $nome = $_SESSION['categoria']['nome'];
+}
 
 ?>
 
@@ -28,14 +40,14 @@ require_once('controller/recebeCategoria.php');
 
             <div id="container-adm">
 
-                <form name="frmCadastro" method="post" >
+                <form action="controller/recebeCategoria.php?id=<?=$id?>&modo=<?=$modo?>" name="frmCadastro" method="post" >
 
                     <div id="campo-container">
                         <div class="campo">
                             <div class="nome-campo">
                                 <label>Nome:</label>
                             </div>
-                            <input type="text" name="txtNome">
+                            <input type="text" name="txtNome" value="<?=$nome?>">
                         </div>
                     </div>
 
@@ -56,10 +68,18 @@ require_once('controller/recebeCategoria.php');
                     <td class="tblColunas destaque"> Nome </td>
                     <td class="tblColunas destaque"> Opções </td>
                 </tr>
+
+                    <?php
+                    
+                        $dadosCategorias = exibirCategorias();
+
+                        while($rsCategorias = mysqli_fetch_assoc($dadosCategorias)) {
+                    
+                    ?>
                 
                     <tr id="tblLinhas">
-                        <td class="tblColunas registros"></td>
-                        <td class="tblColunas registros"></td>
+                        <td class="tblColunas registros"><?=$rsCategorias['idcategoria']?></td>
+                        <td class="tblColunas registros"><?=$rsCategorias['nome']?></td>
                         <td class="tblColunas registros">
                             <a href=""> 
                                 <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">
@@ -69,6 +89,10 @@ require_once('controller/recebeCategoria.php');
                             </a>
                         </td>
                     </tr>
+
+                    <?php
+                        }
+                    ?>
 
             </table>
             
