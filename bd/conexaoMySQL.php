@@ -1,7 +1,5 @@
 <?php
 
-require_once('functions/config.php');
-
 function conexaoMysql () {
     $server = (string) BD_SERVER;
     $user = (string) BD_USER;

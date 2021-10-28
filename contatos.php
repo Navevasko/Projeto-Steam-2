@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+
+require_once('functions/config.php');
+require_once('bd/conexaoMySQL.php');
+require_once(SRC . 'controller/exibeItens.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -18,45 +29,6 @@
             
             <h1> Administração de Contatos </h1>
 
-            <div id="container-adm">
-
-                <form name="frmCadastro" method="post" >
-
-                    <div id="campo-container">
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Nome:</label>
-                            </div>
-                            <input type="text" name="txtNome">
-                        </div>
-
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Desenvolvedora:</label>
-                            </div>
-                            <input type="text" name="txtDes">
-                        </div>
-
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Ano Lançamento:</label>
-                            </div>
-                            <input type="text" name="txtDate">
-                        </div>
-
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Preço:</label>
-                            </div>
-                            <input type="text" name="txtPreco">
-                        </div>
-                    </div>
-
-                    <input type="submit" value="Salvar" name="btnSubmit">
-                </form>
-
-            </div>
-
             <div id="container-lista">
             <table id="tblConsulta" >
                 <tr>
@@ -65,27 +37,34 @@
                     </td>
                 </tr>
                 <tr id="tblLinhas">
-                    <td class="tblColunas destaque"> Id </td>
                     <td class="tblColunas destaque"> Nome </td>
+                    <td class="tblColunas destaque"> Email </td>
                     <td class="tblColunas destaque"> Celular </td>
                     <td class="tblColunas destaque"> Opções </td>
                 </tr>
+
+                <?php
+                    
+                        $dadosContatos = exibirContatos();
+
+                        while($rsContatos = mysqli_fetch_assoc($dadosContatos)) {
+                    
+                    ?>
                 
                     <tr id="tblLinhas">
-                        <td class="tblColunas registros"></td>
-                        <td class="tblColunas registros"></td>
-                        <td class="tblColunas registros"></td>
+                        <td class="tblColunas registros"><?=$rsContatos['nome']?></td>
+                        <td class="tblColunas registros"><?=$rsContatos['email']?></td>
+                        <td class="tblColunas registros"><?=$rsContatos['celular']?></td>
                         <td class="tblColunas registros">
-                            <a href=""> 
-                                <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">
-                            </a>
-                            <!-- Encaminhando id para o controller através de um link -->
-                            <!-- E confirmando através do evento onclick com a função confirm e return(se True o html executa atarefa solicitada ) -->
-                            <a href="#">
+                        <a onclick="return confirm('Tem certeza que deseja excluir?');" href="controller/excluirContato.php?id=<?=$rsContatos['idContato']?>">
                                 <img src="img/icons/trash.png" alt="Excluir" title="Excluir" class="excluir">
                             </a>
                         </td>
                     </tr>
+
+                    <?php
+                        }
+                    ?>
 
             </table>
             

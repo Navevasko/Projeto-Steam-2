@@ -1,3 +1,31 @@
+<?php
+
+session_start();
+
+
+require_once('functions/config.php');
+require_once('bd/conexaoMySQL.php');
+require_once(SRC . 'controller/exibeItens.php');
+
+$id = (int) 0;
+$nome = (string) null;
+$usuario = (string) null;
+$senha = (string) null;
+$modo = (string) 'Salvar';
+$tipoSenha = (string) 'password';
+
+if(isset($_SESSION['usuario'])) {
+    $id = $_SESSION['usuario']['idUsuario'];
+    $nome = $_SESSION['usuario']['nome'];
+    $usuario = $_SESSION['usuario']['usuario'];
+    $senha = $_SESSION['usuario']['senha'];
+    $modo = 'Atualizar';
+    $tipoSenha = 'text';
+    unset($_SESSION['usuario']);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -20,26 +48,33 @@
 
             <div id="container-adm">
 
-                <form name="frmCadastro" method="post" >
+                <form action="controller/recebeUsuario.php?id=<?=$id?>&modo=<?=$modo?>" name="frmCadastro" method="post" >
 
                     <div id="campo-container">
                         <div class="campo">
                             <div class="nome-campo">
+                                <label>Nome:</label>
+                            </div>
+                            <input type="text" name="txtNome" value="<?=$nome?>">
+                        </div>
+
+                        <div class="campo">
+                            <div class="nome-campo">
                                 <label>Usuário:</label>
                             </div>
-                            <input type="text" name="txtNome">
+                            <input type="text" name="txtUsuario" value="<?=$usuario?>">
                         </div>
 
                         <div class="campo">
                             <div class="nome-campo">
                                 <label>Senha:</label>
                             </div>
-                            <input type="text" name="txtDes">
+                            <input type="<?=$tipoSenha?>" name="txtSenha" value="<?=$senha?>">
                         </div>
 
                     </div>
 
-                    <input type="submit" value="Salvar" name="btnSubmit">
+                    <input type="submit" value="<?=$modo?>" name="btnSubmit">
                 </form>
 
             </div>
@@ -54,25 +89,32 @@
                 <tr id="tblLinhas">
                     <td class="tblColunas destaque"> Id </td>
                     <td class="tblColunas destaque"> Nome </td>
-                    <td class="tblColunas destaque"> Senha </td>
                     <td class="tblColunas destaque"> Opções </td>
                 </tr>
                 
+                <?php
+                
+                    $dadosUsuarios = exibirUsuarios();
+
+                    while($rsUsuarios = mysqli_fetch_assoc($dadosUsuarios)) {
+                
+                ?>
                     <tr id="tblLinhas">
-                        <td class="tblColunas registros"></td>
-                        <td class="tblColunas registros"></td>
-                        <td class="tblColunas registros"></td>
+                        <td class="tblColunas registros"><?=$rsUsuarios['idUsuario']?></td>
+                        <td class="tblColunas registros"><?=$rsUsuarios['nome']?></td>
                         <td class="tblColunas registros">
-                            <a href=""> 
+                            <a href="controller/editaUsuario.php?id=<?=$rsUsuarios['idUsuario']?>"> 
                                 <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">
                             </a>
-                            <!-- Encaminhando id para o controller através de um link -->
-                            <!-- E confirmando através do evento onclick com a função confirm e return(se True o html executa atarefa solicitada ) -->
-                            <a href="#">
+
+                            <a onclick="return confirm('Tem certeza que deseja excluir?')" href="controller/excluirUsuario.php?id=<?=$rsUsuarios['idUsuario']?>">
                                 <img src="img/icons/trash.png" alt="Excluir" title="Excluir" class="excluir">
                             </a>
                         </td>
                     </tr>
+                <?php
+                    }
+                ?>
 
             </table>
             

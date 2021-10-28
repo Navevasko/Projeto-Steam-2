@@ -22,6 +22,59 @@ function buscarCategoria($idCategoria) {
         return $select;
 }
 
+function listarContatos() {
+    $sql = "select * from tblContatos order by idcontato desc";
+
+    $conexao = conexaoMySQL();
+
+    $select = mysqli_query($conexao, $sql);
+
+    return $select;
+}
+
+function listarUsuarios() {
+    $sql = "select * from tblUsuarios order by idUsuario desc";
+
+    $conexao = conexaoMySQL();
+
+    $select = mysqli_query($conexao, $sql);
+
+    return $select;
+}
+
+function buscarUsuario($idUsuario) {
+    $sql = "select * from tblUsuarios where idUsuario = " . $idUsuario;
+
+    $conexao = conexaoMySQL();
+
+    $select = mysqli_query($conexao, $sql);
+
+    return $select;
+}
+
+function listarProdutos() {
+    $sql = "select * from tblProdutos order by idProduto desc";
+
+    $conexao = conexaoMySQL();
+
+    $select = mysqli_query($conexao, $sql);
+
+    return $select;
+}
+
+function buscarProdutos($idProduto) {
+        $sql = "select tblCliente.*, tblCategoria.nome from tblProduto
+                        inner join tblCategoria
+                        on tblCategoria.idCategoria = tblProduto.idCategoria
+                        where tblCliente.idCliente = " . $idProduto;
+    
+        $conexao = conexaoMySQL();
+    
+        $select = mysqli_query($conexao, $sql);
+    
+        return $select;
+}
+
 
 
 ?>

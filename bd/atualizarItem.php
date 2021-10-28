@@ -6,11 +6,10 @@ function editarCategoria($arrayCategoria) {
     $sql = "update tblCategoria set 
                 nome = '" . $arrayCategoria['nome'] . "'
                 
-                where idCategoria = " . $arrayCategoria['idCategoria'];
+                where idCategoria = " . $arrayCategoria['id'];
 
     $conexao = conexaoMySQL();
     
-    //Envia o script SQL para o Banco de Dados
     if(mysqli_query($conexao, $sql)) {
         return true;
     }
@@ -19,4 +18,21 @@ function editarCategoria($arrayCategoria) {
     }
 }
 
+function editarUsuario($arrayUsuario) {
+    $sql = "update tblUsuarios set 
+                nome = '" . $arrayUsuario['nome'] . "',
+                usuario = '" . $arrayUsuario['usuario'] . "',
+                senha = '" . $arrayUsuario['senha'] . "'
+
+                where idUsuario = " . $arrayUsuario['idUsuario'];
+
+    $conexao = conexaoMySQL();
+    
+    if(mysqli_query($conexao, $sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 ?>

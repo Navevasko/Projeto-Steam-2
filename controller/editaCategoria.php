@@ -3,7 +3,7 @@
 require_once('../functions/config.php');
 require_once(SRC . 'bd/listarItens.php');
 
-$idCategoria = $_Get['id'];
+$idCategoria = $_GET['id'];
 
 $dadosCategoria = buscarCategoria($idCategoria);
 
@@ -12,12 +12,12 @@ $dadosCategoria = buscarCategoria($idCategoria);
 
         $_SESSION['categoria'] = $rsCategoria;
 
-        header('location: ../index.php');
+        header('location: ../categorias.php');
     }
     else {
         echo("<script>
             alert('". BD_MSG_ERRO ."');
-            window.history.back();
+            window.location.href='../categorias.php';
         </script>");
     }
 
