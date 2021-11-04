@@ -53,7 +53,23 @@ insert into tblProduto (
 				23
                  );
                  
-delete from tblProduto where idProduto = 2;
+create table tblProduto_Categoria (
+	idProduto_Categoria int not null auto_increment primary key,
+        idProduto int not null,
+        idCategoria int not null,
+        
+        constraint FK_Categoria_Filme_Categoria
+			foreign key (idCategoria)
+            references tblCategoria(idCategoria),
+            
+		constraint FK_Produto_Produto_Categoria
+			foreign key (idProduto)
+            references tblProduto(idProduto),
+            
+		unique index(idProduto_Categoria)
+);
+                 
+delete from tblProduto where idProduto = 3;
 /*Permite visualizar a estrutura criada da tabela*/
 desc tblproduto;
 
@@ -68,3 +84,19 @@ insert into tblContatos (nome, email, celular) values ('teste','teste','teste');
 
 /*Insere dados em uma tabela*/
 insert into tblcategoria ( nome ) values ( 'Ação' );
+
+select * from tblProdutos order by idProduto desc;
+
+select tblProduto.*, tblCategoria.nome from tblProduto
+                        inner join tblCategoria
+                        on tblCategoria.idCategoria = tblProduto.idCategoria
+                        where tblProduto.idproduto = 1;
+                        
+                        
+alter table tblCategoria
+			change nome nomeCategoria varchar(100) not null;
+            
+select * from tblUsuarios;
+
+alter table tblProduto 
+			add column foto varchar(40) not null;

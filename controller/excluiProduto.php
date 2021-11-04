@@ -3,18 +3,18 @@
 require_once('../functions/config.php');
 require_once(SRC . 'bd/excluirItem.php');
 
-$idCategoria = $_GET['id'];
+$idProduto = $_GET['id'];
 
-    if(deletarCategoria($idCategoria)) {
+    if(deletarProduto($idProduto)) {
         echo("<script>
                     alert('". BD_MSG_EXCLUIR ."');
-                    window.location.href='../categorias.php';
+                    window.location.href='../produtos.php';
                 </script>");
     }
     else {
         echo("<script>
                     alert('". BD_MSG_ERRO ."');
-                    window.location.href='../categorias.php';
+                    window.location.href='../produtos.php';
                 </script>");
     }
 

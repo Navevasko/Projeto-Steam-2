@@ -3,12 +3,14 @@
 require_once("../functions/config.php");
 require_once(SRC . "bd/inserirItem.php");
 require_once(SRC . "bd/atualizarItem.php");
+require_once(SRC . 'functions/upload.php');
 
 $nome = (string) null;
 $desenvolvedor = (string) null;
 $des = (string) null;
 $preco = (int) null;
 $idCategoria = (int) null;
+$foto = (string) null;
 
 if(isset($_GET['id'])) {
     $id = (int) $_GET['id'];
@@ -23,8 +25,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $des = $_POST['txtDes'];
     $preco = $_POST['txtPreco'];
     $idCategoria = $_POST['sltGenero'];
+    $foto = uploadFile($_FILES['fleFoto']);
 
-    if($nome == null || $desenvolvedor == null || $des == null || $preco == null) {
+    if($nome == null || $desenvolvedor == null || $des == null || $preco == null || $idCategoria == null) {
         echo("<script>
                 alert('". ERRO_CAIXA_VAZIA ."');
                 window.location.href='../produtos.php';
@@ -38,11 +41,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     else {
         $produto = array (
+            'idproduto'     =>      $id,
             'nome'          =>      $nome,
             'desenvolvedor' =>      $desenvolvedor,
             'des'           =>      $des,
             'preco'         =>      $preco,
-            'idCategoria'   =>      $idCategoria
+            'idCategoria'   =>      $idCategoria,
+            'foto'          =>      $foto
         );
 
         if(strtolower($_GET['modo']) == 'salvar') {

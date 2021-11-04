@@ -5,7 +5,7 @@ require_once(SRC . 'bd/conexaoMySQL.php');
 function inserirCategoria($categoria) {
     $sql = "insert into tblcategoria
             (
-                nome
+                nomeCategoria
             )
             
             values
@@ -24,6 +24,8 @@ function inserirCategoria($categoria) {
 }
 
 function inserirUsuario($usuario) {
+
+    $senhaCript = hash('sha256', $usuario['senha']);
     $sql = "insert into tblUsuarios (
                 nome,
                 usuario,
@@ -33,7 +35,7 @@ function inserirUsuario($usuario) {
             values (
                 '" . $usuario['nome'] . "',
                 '" . $usuario['usuario'] . "',
-                '" . $usuario['senha'] . "'
+                '" . $senhaCript . "'
             )";
 
     $conexao = conexaoMySQL();
@@ -48,10 +50,38 @@ function inserirUsuario($usuario) {
 
 function inserirProduto($produto) {
     echo($produto['nome']);
+    echo($produto['foto']);
     echo($produto['desenvolvedor']);
     echo($produto['des']);
     echo($produto['preco']);
     echo($produto['idCategoria']);
+    
+    $sql = "insert into tblProduto (
+                nome,
+                desenvolvedor,
+                des,
+                preco,
+                idCategoria,
+                foto
+            )
+
+            values (
+                '" . $produto['nome'] . "',
+                '" . $produto['desenvolvedor'] . "',
+                '" . $produto['des'] . "',
+                 " . $produto['preco'] . ",
+                 " . $produto['idCategoria'] . ",
+                '" . $produto['foto'] . "'
+            )";
+
+    $conexao = conexaoMySQL();
+    
+    if(mysqli_query($conexao, $sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
 
   
 

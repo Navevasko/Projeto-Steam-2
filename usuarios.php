@@ -14,13 +14,16 @@ $senha = (string) null;
 $modo = (string) 'Salvar';
 $tipoSenha = (string) 'password';
 
+if(isset($_POST['btnSenha'])) {
+    $tipoSenha = "text";
+}
+
 if(isset($_SESSION['usuario'])) {
     $id = $_SESSION['usuario']['idUsuario'];
     $nome = $_SESSION['usuario']['nome'];
     $usuario = $_SESSION['usuario']['usuario'];
     $senha = $_SESSION['usuario']['senha'];
     $modo = 'Atualizar';
-    $tipoSenha = 'text';
     unset($_SESSION['usuario']);
 }
 
@@ -69,7 +72,7 @@ if(isset($_SESSION['usuario'])) {
                             <div class="nome-campo">
                                 <label>Senha:</label>
                             </div>
-                            <input type="<?=$tipoSenha?>" name="txtSenha" value="<?=$senha?>">
+                            <input type="password" name="txtSenha" value="">
                         </div>
 
                     </div>

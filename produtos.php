@@ -13,18 +13,22 @@ $desenvolvedor = (string) null;
 $des = (string) null;
 $preco = (int) null;
 $idCategoria = (int) null;
+$nomeCategoria = "Selecione um Item";
+$foto = (string) null;
 
 $modo = (string) 'Salvar';
 
 if(isset($_SESSION['produto'])) {
-    $id = $_SESSION['produto']['produto'];
+    $id = $_SESSION['produto']['idproduto'];
     $nome = $_SESSION['produto']['nome'];
     $desenvolvedor = $_SESSION['produto']['desenvolvedor'];
     $des = $_SESSION['produto']['des'];
     $preco = $_SESSION['produto']['preco'];
     $idCategoria = $_SESSION['produto']['idCategoria'];
+    $nomeCategoria = $_SESSION['produto']['nomeCategoria'];
+    $foto = $_SESSION['produto']['foto'];
     $modo = 'Atualizar';
-    unset($_SESSION['categoria']);
+    unset($_SESSION['produto']);
 }
 
 ?>
@@ -51,35 +55,42 @@ if(isset($_SESSION['produto'])) {
 
             <div id="container-adm">
 
-                <form action="controller/recebeProduto.php?id=<?=$id?>&modo=<?=$modo?>" name="frmCadastro" method="post" >
+                <form enctype="multipart/form-data" action="controller/recebeProduto.php?id=<?=$id?>&modo=<?=$modo?>" name="frmCadastro" method="post" >
 
                     <div id="campo-container">
                         <div class="campo">
                             <div class="nome-campo">
                                 <label>Nome:</label>
                             </div>
-                            <input type="text" name="txtNome">
+                            <input type="text" value="<?=$nome?>" name="txtNome">
+                        </div>
+
+                        <div class="campo">
+                            <div class="nome-campo">
+                                <label> Foto:</label>
+                            </div>
+                            <input value="<?=$foto?>" type="file" name="fleFoto" accept="image/png, image/jpg, image/jpeg">
                         </div>
 
                         <div class="campo">
                             <div class="nome-campo">
                                 <label>Desenvolvedora:</label>
                             </div>
-                            <input type="text" name="txtDesenvolvedor">
+                            <input type="text" value="<?=$desenvolvedor?>" name="txtDesenvolvedor">
                         </div>
 
                         <div class="campo">
                             <div class="nome-campo">
                                 <label>Descrição:</label>
                             </div>
-                            <input type="text" name="txtDes">
+                            <input type="text" value="<?=$des?>" name="txtDes">
                         </div>
 
                         <div class="campo">
                             <div class="nome-campo">
                                 <label>Preço:</label>
                             </div>
-                            <input type="text" name="txtPreco">
+                            <input type="text" value="<?=$preco?>" name="txtPreco">
                         </div>
 
                         <div class="campo">
@@ -88,7 +99,7 @@ if(isset($_SESSION['produto'])) {
                             </div>
                             <select name="sltGenero">
 
-                                <option value=""> Selecione Um Item </option>
+                                <option value="<?=$idCategoria?>"> <?=$nomeCategoria?> </option>
 
                                 <?php
                                 
@@ -98,8 +109,8 @@ if(isset($_SESSION['produto'])) {
                                 
                                 ?>
 
-                                <option value="<?=$rsCategorias['idCategoria']?>">
-                                        <?=$rsCategorias['nome']?>
+                                <option value="<?=$rsCategorias['idcategoria']?>">
+                                        <?=$rsCategorias['nomeCategoria']?>
                                 </option>
 
                                 <?php
@@ -109,9 +120,9 @@ if(isset($_SESSION['produto'])) {
                             </select>
                         </div>
                         
-                    </div>
+                    </div> 
 
-                    <input type="submit" value="Salvar" name="btnSubmit">
+                    <input type="submit" value="<?=$modo?>" name="btnSubmit">
                 </form>
 
             </div>
@@ -145,12 +156,11 @@ if(isset($_SESSION['produto'])) {
                         <td class="tblColunas registros"><?=$rsProdutos['preco']?></td>
                         <td class="tblColunas registros"><?=$rsProdutos['idCategoria']?></td>
                         <td class="tblColunas registros">
-                            <a href=""> 
+                            <a href="controller/editaProduto.php?id=<?=$rsProdutos['idproduto']?>"> 
                                 <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">
                             </a>
-                            <!-- Encaminhando id para o controller através de um link -->
-                            <!-- E confirmando através do evento onclick com a função confirm e return(se True o html executa atarefa solicitada ) -->
-                            <a href="#">
+                            
+                            <a onclick="return confirm('Tem certeza que deseja excluir?');" href="controller/excluiProduto.php?id=<?=$rsProdutos['idproduto']?>">
                                 <img src="img/icons/trash.png" alt="Excluir" title="Excluir" class="excluir">
                             </a>
                         </td>

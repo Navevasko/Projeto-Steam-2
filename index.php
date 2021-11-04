@@ -1,3 +1,10 @@
+<?php
+require_once('functions/config.php');
+require_once('bd/conexaoMySQL.php');
+require_once(SRC . 'controller/exibeItens.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -57,11 +64,20 @@
                         <div id="caixaSubMenu">
     
                             <ul id="subMenu">
+
+                                <?php
+                                
+                                $dadosCategorias = exibirCategorias();
+
+                                while($rsCategorias = mysqli_fetch_assoc($dadosCategorias)) {
+
+                                ?>
     
-                                <a href="#"><li class="itemSubMenu">Ação</li></a>
-                                <a href="#"><li class="itemSubMenu">Furtividade</li></a>
-                                <a href="#"><li class="itemSubMenu">Terror</li></a>
-                                <a href="#"><li class="itemSubMenu">Multiplayer</li></a>
+                                <a href="#"><li class="itemSubMenu"><?=$rsCategorias['nomeCategoria']?></li></a>
+
+                                <?php
+                                    }
+                                ?>
     
                             </ul>
     
@@ -77,13 +93,18 @@
                     </div>
                 </div>
                 <div id="card-produtos">
+
+                <?php
+                    $dadosProdutos = exibirProdutos();
+
+                    while($rsProdutos = mysqli_fetch_assoc($dadosProdutos)) {
+                ?>
                     <div class="produto">
-                        <img src="img/game-img/dishonored2.jpg" alt="">
+                        <img src="<?=NOME_DIRETORIO_FILE.$rsProdutos['foto']?>" alt="">
                         <div class="texto-produto">
-                            <h3>Dishonored 2</h3>
-                            <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
+                            <h3><?=$rsProdutos['nome']?></h3>
+                            <p>Genero: <?=$rsProdutos['idCategoria']?> </p>
+                            <p>Desenvolvedora: <?=$rsProdutos['desenvolvedor']?> </p>
                         </div>
                         <div class="button-preco">
                             <div class="saiba-mais">
@@ -93,110 +114,15 @@
                                 </button>
                             </div>
                             <div class="preco">
-                                <p>R$999,99</p>
+                                <p><?=$rsProdutos['preco']?></p>
                             </div>
                         </div>
                     </div>
-                    <div class="produto">
-                        <img src="img/game-img/dishonored2.jpg" alt="">
-                        <div class="texto-produto">
-                            <h3>Dishonored 2</h3>
-                            <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                        </div>
-                        <div class="button-preco">
-                            <div class="saiba-mais">
-                                <button>
-                                    <img src="img/icons/bx-cart.svg" alt="">
-                                    Saiba mais
-                                </button>
-                            </div>
-                            <div class="preco">
-                                <p>R$999,99</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produto">
-                        <img src="img/game-img/dishonored2.jpg" alt="">
-                        <div class="texto-produto">
-                            <h3>Dishonored 2</h3>
-                            <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                        </div>
-                        <div class="button-preco">
-                            <div class="saiba-mais">
-                                <button>
-                                    <img src="img/icons/bx-cart.svg" alt="">
-                                    Saiba mais
-                                </button>
-                            </div>
-                            <div class="preco">
-                                <p>R$999,99</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produto">
-                        <img src="img/game-img/dishonored2.jpg" alt="">
-                        <div class="texto-produto">
-                            <h3>Dishonored 2</h3>
-                            <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                        </div>
-                        <div class="button-preco">
-                            <div class="saiba-mais">
-                                <button>
-                                    <img src="img/icons/bx-cart.svg" alt="">
-                                    Saiba mais
-                                </button>
-                            </div>
-                            <div class="preco">
-                                <p>R$999,99</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produto">
-                        <img src="img/game-img/dishonored2.jpg" alt="">
-                        <div class="texto-produto">
-                            <h3>Dishonored 2</h3>
-                            <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                        </div>
-                        <div class="button-preco">
-                            <div class="saiba-mais">
-                                <button>
-                                    <img src="img/icons/bx-cart.svg" alt="">
-                                    Saiba mais
-                                </button>
-                            </div>
-                            <div class="preco">
-                                <p>R$999,99</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="produto">
-                        <img src="img/game-img/dishonored2.jpg" alt="">
-                        <div class="texto-produto">
-                            <h3>Dishonored 2</h3>
-                            <p>Genero: Furtividade Ação Aventura </p>
-                                <p>Data de Lançamento: 11 de novembro de 2016 </p>
-                                <p>Desenvolvedora: Arkane Studios </p>
-                        </div>
-                        <div class="button-preco">
-                            <div class="saiba-mais">
-                                <button>
-                                    <img src="img/icons/bx-cart.svg" alt="">
-                                    Saiba mais
-                                </button>
-                            </div>
-                            <div class="preco">
-                                <p>R$999,99</p>
-                            </div>
-                        </div>
-                    </div>
+
+                <?php
+                    }
+                ?>
+                    
                 </div>
             </div>
 

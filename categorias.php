@@ -82,7 +82,7 @@ if(isset($_SESSION['categoria'])) {
                 
                     <tr id="tblLinhas">
                         <td class="tblColunas registros"><?=$rsCategorias['idcategoria']?></td>
-                        <td class="tblColunas registros"><?=$rsCategorias['nome']?></td>
+                        <td class="tblColunas registros"><?=$rsCategorias['nomeCategoria']?></td>
                         <td class="tblColunas registros">
                             <a href="controller/editaCategoria.php?id=<?=$rsCategorias['idcategoria']?>"> 
                                 <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">

@@ -35,4 +35,25 @@ function editarUsuario($arrayUsuario) {
         return false;
     }
 }
+
+function editarProduto($arrayProduto) {
+    $sql = "update tblProduto set 
+                nome = '" . $arrayProduto['nome'] . "',
+                foto = '" . $arrayProduto['foto'] . "',
+                desenvolvedor = '" . $arrayProduto['desenvolvedor'] . "',
+                des = '" . $arrayProduto['des'] . "',
+                preco = " . $arrayProduto['preco'] . ",
+                idCategoria = " . $arrayProduto['idCategoria'] . "
+
+                where idproduto = " . $arrayProduto['idproduto'];
+
+    $conexao = conexaoMySQL();
+    
+    if(mysqli_query($conexao, $sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 ?>

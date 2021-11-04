@@ -53,7 +53,7 @@ function buscarUsuario($idUsuario) {
 }
 
 function listarProdutos() {
-    $sql = "select * from tblProdutos order by idProduto desc";
+    $sql = "select * from tblProduto order by idProduto desc";
 
     $conexao = conexaoMySQL();
 
@@ -63,10 +63,10 @@ function listarProdutos() {
 }
 
 function buscarProdutos($idProduto) {
-        $sql = "select tblCliente.*, tblCategoria.nome from tblProduto
+        $sql = "select tblProduto.*, tblCategoria.nomeCategoria from tblProduto
                         inner join tblCategoria
                         on tblCategoria.idCategoria = tblProduto.idCategoria
-                        where tblCliente.idCliente = " . $idProduto;
+                        where tblProduto.idproduto = " . $idProduto;
     
         $conexao = conexaoMySQL();
     

@@ -44,4 +44,18 @@ function deletarUsuario($idUsuario) {
     }
 }
 
+function deletarProduto($idProduto) {
+    $sql = "delete from tblProduto
+                    where idproduto = " . $idProduto;
+
+    $conexao = conexaoMySQL();
+
+    if(mysqli_query($conexao, $sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 ?>
