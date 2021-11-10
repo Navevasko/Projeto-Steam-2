@@ -49,12 +49,6 @@ function inserirUsuario($usuario) {
 }
 
 function inserirProduto($produto) {
-    echo($produto['nome']);
-    echo($produto['foto']);
-    echo($produto['desenvolvedor']);
-    echo($produto['des']);
-    echo($produto['preco']);
-    echo($produto['idCategoria']);
     
     $sql = "insert into tblProduto (
                 nome,
@@ -85,6 +79,27 @@ function inserirProduto($produto) {
 
   
 
+}
+
+function inserirCategoriaProduto ($produto) {
+    $sql = "insert into tblProduto_Categoria (
+                idProduto,
+                idCategoria
+            )
+            
+            values (
+                " . $produto['idproduto'] . ",
+                " . $produto['idCategoria'] . "
+                )";
+
+    $conexao = conexaoMySQL();
+    
+    if(mysqli_query($conexao, $sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 

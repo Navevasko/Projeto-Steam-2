@@ -51,6 +51,13 @@
                                 Usuarios
                             </a>
                         </div>
+
+                        <div class="categoria">
+                            <img src="img/icons/product_category.png" alt="">
+                            <a href="produto_categoria.php">
+                                Categoria de produtos
+                            </a>
+                        </div>
                     
                 </div>
                 

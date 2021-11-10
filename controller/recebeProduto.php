@@ -19,28 +19,37 @@ else {
     $id = 0;
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nome = $_POST['txtNome'];
-    $desenvolvedor = $_POST['txtDesenvolvedor'];
-    $des = $_POST['txtDes'];
-    $preco = $_POST['txtPreco'];
-    $idCategoria = $_POST['sltGenero'];
-    $foto = uploadFile($_FILES['fleFoto']);
+if(isset($_GET['tipo'])) {
+    $tipoPagina = (string) $_GET['tipo'];
+}
+else {
+    $tipoPagina = (string) null;
+}
 
-    if($nome == null || $desenvolvedor == null || $des == null || $preco == null || $idCategoria == null) {
-        echo("<script>
-                alert('". ERRO_CAIXA_VAZIA ."');
-                window.location.href='../produtos.php';
-                </script>");
-    }
-    elseif(strlen($nome) > 100 || strlen($desenvolvedor) > 100) {
-        echo("<script>
-        alert('". ERRO_MAXLENGHT ."');
-        window.location.href='../produtos.php';
-        </script>");
-    }
-    else {
-        $produto = array (
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if($tipoPagina != "Produto_Categoria") {
+        $nome = $_POST['txtNome'];
+        $desenvolvedor = $_POST['txtDesenvolvedor'];
+        $des = $_POST['txtDes'];
+        $preco = $_POST['txtPreco'];
+        $idCategoria = $_POST['sltGenero'];
+        $foto = uploadFile($_FILES['fleFoto']);
+
+        if($nome == null || $desenvolvedor == null || $des == null || $preco == null || $idCategoria == null) {
+            echo("<script>
+                    alert('". ERRO_CAIXA_VAZIA ."');
+                    window.location.href='../produtos.php';
+                    </script>");
+        }
+        elseif(strlen($nome) > 100 || strlen($desenvolvedor) > 100) {
+            echo("<script>
+            alert('". ERRO_MAXLENGHT ."');
+            window.location.href='../produtos.php';
+            </script>");
+        }
+
+         $produto = array (
             'idproduto'     =>      $id,
             'nome'          =>      $nome,
             'desenvolvedor' =>      $desenvolvedor,
@@ -78,7 +87,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </script>");
             }
         }
+
     }
-}
+
+    else {
+        $idCategoria = (int) $_POST['sltGenero'];
+
+        $produto = array (
+            'idproduto'     =>      $id,
+            'idCategoria'   =>      $idCategoria
+        );
+
+        var_dump($produto);
+
+    }
+
+        
+    }
 
 ?>

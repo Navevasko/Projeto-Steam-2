@@ -100,3 +100,26 @@ select * from tblUsuarios;
 
 alter table tblProduto 
 			add column foto varchar(40) not null;
+            
+insert into tblProduto (
+                nome,
+                desenvolvedor,
+                des,
+                preco,
+                idCategoria,
+                foto
+            )
+
+            values (
+                'Injustice',
+                'a',
+                'a',
+                2,
+                28,
+                'foto'
+            );
+            
+drop table tblProduto_Categoria;
+            
+select * from tblProduto;
+delete from tblProduto where idProduto = 1;
