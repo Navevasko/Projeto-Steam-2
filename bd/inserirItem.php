@@ -81,7 +81,7 @@ function inserirProduto($produto) {
 
 }
 
-function inserirCategoriaProduto ($produto) {
+function inserirProdutoCategoria ($produto) {
     $sql = "insert into tblProduto_Categoria (
                 idProduto,
                 idCategoria

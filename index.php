@@ -103,7 +103,7 @@ require_once(SRC . 'controller/exibeItens.php');
                         <img src="<?=NOME_DIRETORIO_FILE.$rsProdutos['foto']?>" alt="">
                         <div class="texto-produto">
                             <h3><?=$rsProdutos['nome']?></h3>
-                            <p>Genero: <?=$rsProdutos['idCategoria']?> </p>
+                            <p>Genero: <?=$rsProdutos['nomeCategoria']?> </p>
                             <p>Desenvolvedora: <?=$rsProdutos['desenvolvedor']?> </p>
                         </div>
                         <div class="button-preco">
@@ -114,7 +114,7 @@ require_once(SRC . 'controller/exibeItens.php');
                                 </button>
                             </div>
                             <div class="preco">
-                                <p><?=$rsProdutos['preco']?></p>
+                                <p>R$ <?=$rsProdutos['preco']?></p>
                             </div>
                         </div>
                     </div>

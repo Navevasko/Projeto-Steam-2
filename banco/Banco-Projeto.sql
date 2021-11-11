@@ -68,6 +68,8 @@ create table tblProduto_Categoria (
             
 		unique index(idProduto_Categoria)
 );
+
+show tables;
                  
 delete from tblProduto where idProduto = 3;
 /*Permite visualizar a estrutura criada da tabela*/
@@ -101,25 +103,35 @@ select * from tblUsuarios;
 alter table tblProduto 
 			add column foto varchar(40) not null;
             
-insert into tblProduto (
-                nome,
-                desenvolvedor,
-                des,
-                preco,
-                idCategoria,
-                foto
+insert into tblProduto_Categoria (
+                idProduto,
+                idCategoria
             )
-
-            values (
-                'Injustice',
-                'a',
-                'a',
-                2,
-                28,
-                'foto'
-            );
             
-drop table tblProduto_Categoria;
+            values (
+                10,
+                30
+                );
             
 select * from tblProduto;
+select * from tblCategoria;
+select * from tblProduto_Categoria;
 delete from tblProduto where idProduto = 1;
+
+
+select tblProduto_Categoria.*, tblProduto.nome, tblProduto.foto, tblProduto.idProduto, tblCategoria.nomeCategoria, tblCategoria.idCategoria from tblProduto_Categoria
+
+        inner join tblProduto
+        on tblProduto.idProduto = tblProduto_Categoria.idProduto
+            
+        inner join tblCategoria
+        on tblCategoria.idCategoria = tblProduto_Categoria.idCategoria
+    
+        order by idProduto_Categoria desc;
+                        
+select idProduto_Categoria from tblProduto_Categoria;
+
+select tblProduto_Categoria.*, tblCategoria.nomeCategoria from tblProduto_Categoria
+                        inner join tblCategoria
+                        on tblCategoria.idCategoria = tblProduto_Categoria.idCategoria
+                        where tblProduto_Categoria.idProduto_Categoria = 3;

@@ -2,26 +2,28 @@
 
 session_start();
 
-
 require_once('functions/config.php');
 require_once('bd/conexaoMySQL.php');
 require_once(SRC . 'controller/exibeItens.php');
 
+$idProduto_Categoria = (int) 0;
 $id = (int) 0;
 $nome = (string) "Selecione um Item";
 $idCategoria = (int) null;
 $nomeCategoria = "Selecione um Item";
 $tipoPagina = (string) "Produto_Categoria";
+$idproduto = (int) 0;
 
 $modo = (string) 'Salvar';
 
-if(isset($_SESSION['produto'])) {
-    $id = $_SESSION['produto']['idproduto'];
-    $nome = $_SESSION['produto']['nome'];
-    $idCategoria = $_SESSION['produto']['idCategoria'];
-    $nomeCategoria = $_SESSION['produto']['nomeCategoria'];
+if(isset($_SESSION['produto_categoria'])) {
+    $id = $_SESSION['produto_categoria']['idProduto_Categoria'];
+    $nome = $_SESSION['produto_categoria']['nome'];
+    $idCategoria = $_SESSION['produto_categoria']['idCategoria'];
+    $nomeCategoria = $_SESSION['produto_categoria']['nomeCategoria'];
+    $idproduto = $_SESSION['produto_categoria']['idProduto'];
     $modo = 'Atualizar';
-    unset($_SESSION['produto']);
+    unset($_SESSION['produto_categoria']);
 }
 
 ?>
@@ -130,23 +132,23 @@ if(isset($_SESSION['produto'])) {
 
                 <?php
                 
-                    $dadosProdutos = exibirProdutos();
+                    $dadosProdutos = listarProduto_Categoria();
 
                     while($rsProdutos = mysqli_fetch_assoc($dadosProdutos)) {
                 
                 ?>
                 
                     <tr id="tblLinhas">
-                        <td class="tblColunas registros"><?=$rsProdutos['idproduto']?></td>
+                        <td class="tblColunas registros"><?=$rsProdutos['idProduto_Categoria']?></td>
                         <td class="tblColunas registros"><img class="foto" src="<?=NOME_DIRETORIO_FILE.$rsProdutos['foto']?>" alt=""></td>
                         <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
-                        <td class="tblColunas registros"><?=$rsProdutos['idCategoria']?></td>
+                        <td class="tblColunas registros"><?=$rsProdutos['nomeCategoria']?></td>
                         <td class="tblColunas registros">
-                            <a href="controller/editaProduto_Categoria.php?id=<?=$rsProdutos['idproduto']?>"> 
+                            <a href="controller/editaProduto_Categoria.php?idProduto_Categoria=<?=$rsProdutos['idProduto_Categoria']?>"> 
                                 <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">
                             </a>
                             
-                            <a onclick="return confirm('Tem certeza que deseja excluir?');" href="controller/excluiProduto.php?id=<?=$rsProdutos['idproduto']?>">
+                            <a onclick="return confirm('Tem certeza que deseja excluir?');" href="controller/excluiProduto.php?idProduto_Categoria=<?=$rsProdutos['idProduto_Categoria']?>">
                                 <img src="img/icons/trash.png" alt="Excluir" title="Excluir" class="excluir">
                             </a>
                         </td>

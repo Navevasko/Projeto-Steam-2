@@ -53,74 +53,99 @@ if(isset($_SESSION['produto'])) {
             
             <h1> Administração de Produtos </h1>
 
-            <div id="container-adm">
+            <div id="container-adm-produto">
 
-                <form enctype="multipart/form-data" action="controller/recebeProduto.php?id=<?=$id?>&modo=<?=$modo?>" name="frmCadastro" method="post" >
+                <form enctype="multipart/form-data" action="controller/recebeProduto.php?id=<?=$id?>&modo=<?=$modo?>" name="frmCadastro" method="post" >        
 
-                    <div id="campo-container">
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Nome:</label>
+                        <div id="container-input">
+                            <div class="campo">
+                                <div class="nome-campo">
+                                    <label>Nome:</label>
+                                </div>
+                                <input type="text" value="<?=$nome?>" name="txtNome">
                             </div>
-                            <input type="text" value="<?=$nome?>" name="txtNome">
+
+                            
+
+                            <div class="campo">
+                                <div class="nome-campo">
+                                    <label>Desenvolvedora:</label>
+                                </div>
+                                <input type="text" value="<?=$desenvolvedor?>" name="txtDesenvolvedor">
+                            </div>
+
+                            <div class="campo">
+                                <div class="nome-campo">
+                                    <label>Descrição:</label>
+                                </div>
+                                <input type="text" value="<?=$des?>" name="txtDes">
+                            </div>
+
+                            <div class="campo">
+                                <div class="nome-campo">
+                                    <label>Preço:</label>
+                                </div>
+                                <input type="text" value="<?=$preco?>" name="txtPreco">
+                            </div>
+
+                            <div class="campo">
+                                <div class="nome-campo">
+                                    <label>Desconto:</label>
+                                </div>
+                                <input type="text" value="" name="txtDesconto">
+                            </div>
+
+                            <div class="campo">
+                                <div class="nome-campo">
+                                    <label>Destaque:</label>
+                                </div>
+                                <label for=""> Sim </label>
+                                <input type="radio" value="<?=$preco?>" name="txtPreco">
+
+                                <label for=""> Não </label>
+                                <input type="radio" value="<?=$preco?>" name="txtPreco">
+                            </div>
+
+                            <div class="campo">
+                                <div class="nome-campo">
+                                    <label> Foto: </label>
+                                </div>
+                                    <label id="foto-label" for="foto">  </label>
+                                <input id="foto"value="<?=$foto?>" type="file" name="fleFoto" accept="image/png, image/jpg, image/jpeg">
+                            </div>
+
+                            <div id="container-foto">
+                                <img src="img/logo.png" alt="">
+                            </div>
+                            
                         </div>
 
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label> Foto:</label>
+                    <div id="container-generos">
+
+                    <h2> Seleção de Gêneros </h2>
+
+                        <div id="container-categoria">
+
+                        <?php
+
+                            $dadosCategorias = exibirCategorias();
+
+                            while($rsCategorias = mysqli_fetch_assoc($dadosCategorias)) {
+
+                        ?>
+                            
+                            <div class="campo-genero">
+                                <input type="checkbox" name="" id="" value="<?=$rsCategorias['idCategoria']?>">
+                                <label> <?=$rsCategorias['nomeCategoria']?> </label>
                             </div>
-                            <input value="<?=$foto?>" type="file" name="fleFoto" accept="image/png, image/jpg, image/jpeg">
+
+                        <?php
+                            }
+                        ?>
+
                         </div>
 
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Desenvolvedora:</label>
-                            </div>
-                            <input type="text" value="<?=$desenvolvedor?>" name="txtDesenvolvedor">
-                        </div>
-
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Descrição:</label>
-                            </div>
-                            <input type="text" value="<?=$des?>" name="txtDes">
-                        </div>
-
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Preço:</label>
-                            </div>
-                            <input type="text" value="<?=$preco?>" name="txtPreco">
-                        </div>
-
-                        <div class="campo">
-                            <div class="nome-campo">
-                                <label>Gênero:</label>
-                            </div>
-                            <select name="sltGenero">
-
-                                <option value="<?=$idCategoria?>"> <?=$nomeCategoria?> </option>
-
-                                <?php
-                                
-                                    $dadosCategorias = exibirCategorias();
-
-                                    while($rsCategorias = mysqli_fetch_assoc($dadosCategorias)) {
-                                
-                                ?>
-
-                                <option value="<?=$rsCategorias['idcategoria']?>">
-                                        <?=$rsCategorias['nomeCategoria']?>
-                                </option>
-
-                                <?php
-                                    }
-                                ?>
-
-                            </select>
-                        </div>
-                        
-                    </div> 
+                    </div>
 
                     <input type="submit" value="<?=$modo?>" name="btnSubmit">
                 </form>
@@ -154,7 +179,7 @@ if(isset($_SESSION['produto'])) {
                         <td class="tblColunas registros"><?=$rsProdutos['idproduto']?></td>
                         <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
                         <td class="tblColunas registros"><?=$rsProdutos['preco']?></td>
-                        <td class="tblColunas registros"><?=$rsProdutos['idCategoria']?></td>
+                        <td class="tblColunas registros"><?=$rsProdutos['nomeCategoria']?></td>
                         <td class="tblColunas registros">
                             <a href="controller/editaProduto.php?id=<?=$rsProdutos['idproduto']?>"> 
                                 <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">

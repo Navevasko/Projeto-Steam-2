@@ -56,4 +56,21 @@ function editarProduto($arrayProduto) {
         return false;
     }
 }
+
+function editarProduto_Categoria($arrayProduto_Categoria) {
+    $sql = "update tblProduto_Categoria set
+                idProduto = " . $arrayProduto_Categoria['idproduto'] . ",
+                idCategoria = " . $arrayProduto_Categoria['idCategoria'] . "
+
+            where idProduto_Categoria " . $arrayProduto_Categoria['idProduto_Categoria'];
+
+    $conexao = conexaoMySQL();
+    
+    if(mysqli_query($conexao, $sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 ?>

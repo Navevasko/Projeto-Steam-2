@@ -5,6 +5,8 @@ require_once(SRC . "bd/inserirItem.php");
 require_once(SRC . "bd/atualizarItem.php");
 require_once(SRC . 'functions/upload.php');
 
+$idProduto_Categoria = (int) null;
+$idProduto = (int) null; 
 $nome = (string) null;
 $desenvolvedor = (string) null;
 $des = (string) null;
@@ -28,7 +30,7 @@ else {
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if($tipoPagina != "Produto_Categoria") {
+    if($tipoPagina != "Produto_Categoria") { 
         $nome = $_POST['txtNome'];
         $desenvolvedor = $_POST['txtDesenvolvedor'];
         $des = $_POST['txtDes'];
@@ -91,14 +93,50 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     else {
-        $idCategoria = (int) $_POST['sltGenero'];
+        $idProduto = $_POST['sltProduto'];
+        $idCategoria = $_POST['sltGenero'];
+
+        if(isset($_GET['id'])) {
+            $idProduto_Categoria = $_GET['id'];
+        }
+        else {
+            $idProduto_Categoria = 0;
+        }
 
         $produto = array (
-            'idproduto'     =>      $id,
-            'idCategoria'   =>      $idCategoria
+            'idProduto_Categoria'   =>      $idProduto_Categoria,
+            'idproduto'             =>      $idProduto,
+            'idCategoria'           =>      $idCategoria
         );
 
-        var_dump($produto);
+        if(strtolower($_GET['modo']) == 'salvar') {
+            if(inserirProdutoCategoria($produto)) {
+                echo("<script>
+                alert('". BD_MSG_INSERIR ."');
+                window.location.href='../produto_categoria.php';
+                </script>");
+            }
+            else {
+                echo("<script>
+                alert('". BD_MSG_ERRO ."');
+                window.location.href='../produto_categoria.php';
+                </script>");
+            }
+        }
+        elseif(strtolower($_GET['modo']) == 'atualizar') {
+            if(editarProduto_Categoria($produto)) {
+                echo("<script>
+                alert('". BD_MSG_INSERIR ."');
+                window.location.href='../produto_categoria.php';
+                </script>");
+            }
+            else {
+                echo("<script>
+                alert('". BD_MSG_ERRO ."');
+                
+                </script>");
+            }
+        }
 
     }
 

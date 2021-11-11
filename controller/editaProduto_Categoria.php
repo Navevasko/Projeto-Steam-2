@@ -3,14 +3,14 @@
 require_once('../functions/config.php');
 require_once(SRC . 'bd/listarItens.php');
 
-$idProduto = $_GET['id'];
+$idProduto_Categoria = $_GET['idProduto_Categoria'];
 
-$dadosProduto = buscarProdutos($idProduto);
+$dadosProduto_Categoria = buscarProduto_Categoria($idProduto_Categoria);
 
-    if($rsProduto = mysqli_fetch_assoc($dadosProduto)) {
+    if($rsProduto_Categoria = mysqli_fetch_assoc($dadosProduto_Categoria)) {
         session_start();
 
-        $_SESSION['produto'] = $rsProduto;
+        $_SESSION['produto_categoria'] = $rsProduto_Categoria;
 
         header('location: ../produto_categoria.php');
     }
