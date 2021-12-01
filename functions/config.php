@@ -21,5 +21,9 @@
 
     const BD_MSG_EXCLUIR = "Registro excluido com sucesso";
 
+    define('NOME_DIRETORIO_FILE' , 'arquivos/');
+    $extensoesPermitidasFile = array ("image/png", "image/jpg", "image/jpeg");
+    define('EXTENSOES_PERMITIDAS', $extensoesPermitidasFile);
+    const TAMANHO_FILE = "5120";
 
 ?>

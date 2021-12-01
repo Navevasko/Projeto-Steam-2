@@ -140,40 +140,41 @@ if(isset($_SESSION['produto'])) {
             </div>
 
             <div id="container-lista">
-                <table id="tblConsulta" >
-                    <tr>
-                        <td id="tblTitulo" colspan="5">
-                            <h1> Consulta de Dados </h1>
-                        </td>
-                    </tr>
+            <table id="tblConsulta" >
+                <tr>
+                    <td id="tblTitulo" colspan="5">
+                        <h1> Consulta de Dados </h1>
+                    </td>
+                </tr>
+                <tr id="tblLinhas">
+                    <td class="tblColunas destaque"> Id </td>
+                    <td class="tblColunas destaque"> Nome </td>
+                    <td class="tblColunas destaque"> Preço </td>
+                    <td class="tblColunas destaque"> Gênero </td>
+                    <td class="tblColunas destaque"> Opções </td>
+                </tr>
+
+                <?php
+                
+                    $dadosProdutos = exibirProdutos();
+
+                    while($rsProdutos = mysqli_fetch_assoc($dadosProdutos)) {
+                
+                ?>
+                
                     <tr id="tblLinhas">
-                        <td class="tblColunas destaque"> Id </td>
-                        <td class="tblColunas destaque"> Nome </td>
-                        <td class="tblColunas destaque"> Preço </td>
-                        <td class="tblColunas destaque"> Gênero </td>
-                        <td class="tblColunas destaque"> Opções </td>
-                    </tr>
-
-                    <?php
-                    
-                        $dadosProdutos = exibirProdutos();
-
-                        while($rsProdutos = mysqli_fetch_assoc($dadosProdutos)) {
-                    
-                    ?>
-                    
-                        <tr id="tblLinhas">
-                            <td class="tblColunas registros"><?=$rsProdutos['idproduto']?></td>
-                            <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
-                            <td class="tblColunas registros"><?=$rsProdutos['preco']?></td>
-                            <td class="tblColunas registros"><?=$rsProdutos['idCategoria']?></td>
-                            <td class="tblColunas registros">
-                                <a href="controller/editaProduto.php?id=<?=$rsProdutos['idproduto']?>"> 
-                                    <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">
-                                </a>
-                                <a href="#">
-                                    <img src="img/icons/trash.png" alt="Excluir" title="Excluir" class="excluir">
-                                </a>
+                        <td class="tblColunas registros"><?=$rsProdutos['idproduto']?></td>
+                        <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
+                        <td class="tblColunas registros"><?=$rsProdutos['preco']?></td>
+                        <td class="tblColunas registros"><?=$rsProdutos['nomeCategoria']?></td>
+                        <td class="tblColunas registros">
+                            <a href="controller/editaProduto.php?id=<?=$rsProdutos['idproduto']?>"> 
+                                <img src="img/icons/edit.png" alt="Editar" title="Editar" class="editar">
+                            </a>
+                            
+                            <a onclick="return confirm('Tem certeza que deseja excluir?');" href="controller/excluiProduto.php?id=<?=$rsProdutos['idproduto']?>">
+                                <img src="img/icons/trash.png" alt="Excluir" title="Excluir" class="excluir">
+                            </a>
                             </td>
                         </tr>
 

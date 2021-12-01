@@ -188,7 +188,8 @@ main {
     opacity: 1;
     visibility: visible;
     transition: 1s;
-    margin-left: 125px;
+    margin-top: -15px;
+    margin-left: -30px;
     position: absolute;
 }
 
@@ -208,7 +209,7 @@ main {
 
 #subMenu {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: inherit;
     height: 90px;
 }

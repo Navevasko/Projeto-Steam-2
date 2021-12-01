@@ -133,11 +133,12 @@ nav {
     justify-content: center;
     gap: 75px;
     text-decoration: none;
+    padding-left: 30px;
 }
 
 .categoria {
     width: 150px;
-    height: 150px;
+    height: 170px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -233,7 +234,22 @@ footer {
     margin-bottom: 35px;
 }
 
-#container-adm form {
+#container-adm-produto, #container-adm-produto {
+    width: 100%;
+    height: 250px;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+#container-adm-produto {
+    height: 1250px;
+}
+
+#container-adm form, #container-adm-produto form {
     width: 75%;
     height: inherit;
     background-color: var(--primary);
@@ -243,7 +259,7 @@ footer {
     flex-direction: column;
 }
 
-#container-adm form input[type=submit] {
+#container-adm form input[type=submit], #container-adm-produto form input[type=submit] {
     width: 300px;
     height: 50px;
     border-radius: 25px;
@@ -334,6 +350,81 @@ input[type=file] {
     margin-bottom: 35px;
 }
 
+#container-foto {
+    width: 150px;height: 150px;
+}
+#container-foto img {
+    width: 100%;
+    height: 100%;
+}
+
+#container-input {
+    width: 100%;
+    height: 350px;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+#foto {
+    display: none;
+}
+
+#foto-label {
+    width: 225px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    font-size: 1.3em;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--primary);
+    color: var(--text-color);
+}
+
+#foto-label:hover {
+    cursor: pointer;
+}
+
+#container-generos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    width: 35%;
+    height: 750px;
+    background-color: rgb(66, 50, 30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.campo-genero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: cornflowerblue;
+    width: 150px;
+    height: 50px;
+}
+
+#container-generos input {
+    width: 20px;
+    height: 20px;
+}
+
 #container-lista {
     width: 80%;
     height: fit-content;
@@ -365,6 +456,12 @@ input[type=file] {
     background-color: var(--card-container-background);
     color: var(--text-color);
 }
+
+.foto{
+    width: 100%;
+    height: 200px;
+}
+
 .excluir, .pesquisar, .editar{
     width: 30px;
     height: 30px;
@@ -469,6 +566,8 @@ input[type=file] {
     font-size: 1.2em;
     padding-left: 10px;
     padding-right: 10px;
+    text-align: center;
     background-color: var(--primary);
     color: var(--text-color);
 }
+

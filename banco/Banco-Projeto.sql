@@ -19,11 +19,11 @@ CREATE TABLE tblproduto (
 alter table tblProduto
 			add constraint FK_CATEGORIA_PRODUTO
 						foreign key (idCategoria)
-                        references tblCategoria(idCategoria);
+                        references tblCategoria(idcategoria);
 
 CREATE TABLE tblcategoria (
 	idcategoria int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome varchar(100) NOT NULL
+    nomeCategoria varchar(100) NOT NULL
 );
 
 create table tblProduto_Categoria (
@@ -45,13 +45,16 @@ create table tblUsuarios (
         usuario varchar(15) not null,
         senha varchar(25) not null
 );
+
+insert into tblCategoria (nomeCategoria) values ('Ação');
+
+insert into tblProduto (nome, foto, desenvolvedor, desconto, descricao, preco, idCategoria) values ('A', 'A', 'A', 50, 'A', 50, 1);
                  
 delete from tblProduto where idProduto = 2;
 /*Permite visualizar a estrutura criada da tabela*/
 desc tblproduto;
 
-delete from tblUsuarios
-                    where idUsuario = 1;
+drop table tblCategoria;
 
 /*Seleciona todos os dados de uma tabela*/
 select * from tblCategoria;
@@ -60,4 +63,12 @@ select * from tblProduto;
 insert into tblContatos (nome, email, celular) values ('teste','teste','teste');
 
 /*Insere dados em uma tabela*/
-insert into tblcategoria ( nome ) values ( 'Ação' );
+insert into tblcategoria ( nomeCategoria ) values ( 'Luta' );
+
+select tblProduto.*, tblCategoria.nome from tblProduto
+                        inner join tblCategoria
+                        on tblCategoria.idCategoria = tblProduto.idCategoria
+                        where tblProduto.idproduto = 2;
+                        
+                        
+select * from tblCategoria;
