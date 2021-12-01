@@ -26,7 +26,7 @@ if(isset($_POST['btnLogin'])) {
             
             <h1> Login </h1>
         
-            <form method="post" name="frmLogin">
+            <form action="autenticar.php" method="post" name="frmLogin">
             
                 <div class="caixa-input">
                 <label> Usuário </label>
@@ -37,10 +37,8 @@ if(isset($_POST['btnLogin'])) {
                 <label> Senha </label>
                 <input type="password" name="txtSenha">
                 </div>
-                
-                <a href="dashboard.html">
-                <input type="button" name="btnLogin" value="Login">
-                </a>
+
+                <button name="btnLogin" value="Login">Login</button>
             
             </form>
         

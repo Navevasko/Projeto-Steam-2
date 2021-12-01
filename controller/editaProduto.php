@@ -12,7 +12,7 @@ $dadosProduto = buscarProdutos($idProduto);
 
         $_SESSION['produto'] = $rsProduto;
 
-        header('location: ../Produtos.php');
+        header('location: ../produtos.php');
     }
     else {
         echo("<script>

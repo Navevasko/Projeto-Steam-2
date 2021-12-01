@@ -1,6 +1,16 @@
+<?php
 
+if(session_status() != PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
+if(!isset($_SESSION['statusLogin']) || !$_SESSION['statusLogin']) {
+    header('location: login.php');
+}
 
+$nomeUsuario = $_SESSION['nomeUsuario'];
+
+?>
         <header>
 
             <div id="container-nome-projeto">
@@ -51,20 +61,13 @@
                                 Usuarios
                             </a>
                         </div>
-
-                        <div class="categoria">
-                            <img src="img/icons/product_category.png" alt="">
-                            <a href="produto_categoria.php">
-                                Categoria de produtos
-                            </a>
-                        </div>
                     
                 </div>
                 
                 <div id="container-usuario">
-                    <p>Bem vindo "Usuário"</p>
+                    <p>Bem vindo <?=$nomeUsuario?></p>
                     <img src="img/icons/user-icon.png" alt="">
-                    <a href="">Logout</a>
+                    <a href="login.php">Logout</a>
                 </div>
             </nav>
             

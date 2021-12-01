@@ -8,10 +8,12 @@ use dbprojeto20212t;
 CREATE TABLE tblproduto (
   idproduto int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nome varchar(100) NOT NULL,
+  foto varchar(100) NOT NULL,
   desenvolvedor varchar(100) NOT NULL,
-  des text NOT NULL,
+  descricao text NOT NULL,
+  desconto boolean NOT NULL,
   preco float NOT NULL,
-  idCategoria int not null
+  idCategoria int NOT NULL
 );
 
 alter table tblProduto
@@ -23,11 +25,17 @@ alter table tblProduto
 alter table tblProduto
 			add constraint FK_CATEGORIA_PRODUTO
 						foreign key (idCategoria)
-                        references tblCategoria(idCategoria);
+                        references tblCategoria(idcategoria);
 
 CREATE TABLE tblcategoria (
 	idcategoria int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome varchar(100) NOT NULL
+    nomeCategoria varchar(100) NOT NULL
+);
+
+create table tblProduto_Categoria (
+			idProduto_Categoria int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            idProduto int not null,
+            idCategoria int not null
 );
 
 create table tblContatos (
@@ -44,45 +52,15 @@ create table tblUsuarios (
         senha varchar(25) not null
 );
 
-insert into tblProduto (
-                    nome,
-                    desenvolvedor,
-                    des,
-                    preco,
-                    idCategoria
-            )
-            values (
-                'Dishnored 2',
-                'A',
-                'A',
-                 69.90,
-				23
-                 );
-                 
-create table tblProduto_Categoria (
-	idProduto_Categoria int not null auto_increment primary key,
-        idProduto int not null,
-        idCategoria int not null,
-        
-        constraint FK_Categoria_Filme_Categoria
-			foreign key (idCategoria)
-            references tblCategoria(idCategoria),
-            
-		constraint FK_Produto_Produto_Categoria
-			foreign key (idProduto)
-            references tblProduto(idProduto),
-            
-		unique index(idProduto_Categoria)
-);
+insert into tblCategoria (nomeCategoria) values ('Ação');
 
-show tables;
+insert into tblProduto (nome, foto, desenvolvedor, desconto, descricao, preco, idCategoria) values ('A', 'A', 'A', 50, 'A', 50, 1);
                  
-delete from tblProduto where idProduto = 3;
+delete from tblProduto where idProduto = 2;
 /*Permite visualizar a estrutura criada da tabela*/
 desc tblproduto;
 
-delete from tblUsuarios
-                    where idUsuario = 1;
+drop table tblCategoria;
 
 /*Seleciona todos os dados de uma tabela*/
 select * from tblCategoria;
@@ -91,50 +69,15 @@ select * from tblProduto;
 insert into tblContatos (nome, email, celular) values ('teste','teste','teste');
 
 /*Insere dados em uma tabela*/
-insert into tblcategoria ( nome ) values ( 'Ação' );
-
-select * from tblProdutos order by idProduto desc;
+insert into tblcategoria ( nomeCategoria ) values ( 'Luta' );
 
 select tblProduto.*, tblCategoria.nome from tblProduto
                         inner join tblCategoria
                         on tblCategoria.idCategoria = tblProduto.idCategoria
-                        where tblProduto.idproduto = 1;
+                        where tblProduto.idproduto = 2;
                         
                         
-alter table tblCategoria
-			change nome nomeCategoria varchar(100) not null;
-            
-select * from tblUsuarios;
-
-alter table tblProduto 
-			add column foto varchar(40) not null;
-            
-insert into tblProduto_Categoria (
-                idProduto,
-                idCategoria
-            )
-            
-            values (
-                10,
-                30
-                );
-            
-select * from tblProduto;
-select * from tblCategoria;
-select * from tblProduto_Categoria;
-delete from tblProduto where idProduto = 1;
-
-
-select tblProduto_Categoria.*, tblProduto.nome, tblProduto.foto, tblProduto.idProduto, tblCategoria.nomeCategoria, tblCategoria.idCategoria from tblProduto_Categoria
-
-        inner join tblProduto
-        on tblProduto.idProduto = tblProduto_Categoria.idProduto
-            
-        inner join tblCategoria
-        on tblCategoria.idCategoria = tblProduto_Categoria.idCategoria
-    
-        order by idProduto_Categoria desc;
-                        
+<<<<<<< HEAD
 select idProduto_Categoria from tblProduto_Categoria;
 
 update tblProduto_Categoria set
@@ -142,3 +85,6 @@ update tblProduto_Categoria set
                 idCategoria = 29
 
             where idProduto_Categoria = 7;
+=======
+select * from tblCategoria;
+>>>>>>> 5df6379471d05d589612aa76568d6e48ea1ab236

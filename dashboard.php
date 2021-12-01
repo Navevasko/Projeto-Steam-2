@@ -21,6 +21,8 @@
                 <h1>Titulo da Sessão</h1>
 
             </div>
+
+            <div id="dashboard"></div>
             
         </main>
 

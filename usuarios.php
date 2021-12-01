@@ -47,7 +47,11 @@ if(isset($_SESSION['usuario'])) {
 
         <main>
             
-            <h1> Administração de Usuários </h1>
+        <div id="titulo">
+
+            <h1>Gerenciamento de Usuarios</h1>
+
+        </div>
 
             <div id="container-adm">
 
@@ -72,7 +76,7 @@ if(isset($_SESSION['usuario'])) {
                             <div class="nome-campo">
                                 <label>Senha:</label>
                             </div>
-                            <input type="password" name="txtSenha" value="">
+                            <input class="senha" type="password" name="txtSenha" value="">
                         </div>
 
                     </div>

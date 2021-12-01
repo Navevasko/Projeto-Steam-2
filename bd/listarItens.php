@@ -54,9 +54,10 @@ function buscarUsuario($idUsuario) {
 
 function listarProdutos() {
     $sql = "select tblProduto.*, tblCategoria.nomeCategoria from tblProduto
-                            inner join tblCategoria
-                            on tblCategoria.idCategoria = tblProduto.idCategoria 
-                            order by idProduto desc";
+    inner join tblCategoria
+    on tblCategoria.idcategoria = tblProduto.idcategoria
+    
+    order by idProduto desc";
 
     $conexao = conexaoMySQL();
 
@@ -115,6 +116,15 @@ function buscarProduto_Categoria($idProduto_Categoria) {
         return $select;
 }
 
+function selectProdutoCategoria($idProduto){
+    
+    $sql= "select * from tblProduto_Categoria where idProduto=".$idProduto;
 
+    $conexao= conexaoMysql();
+
+    $select = mysqli_query($conexao,$sql);
+    
+    return $select;
+}
 
 ?>

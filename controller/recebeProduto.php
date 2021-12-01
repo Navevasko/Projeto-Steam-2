@@ -5,13 +5,14 @@ require_once(SRC . "bd/inserirItem.php");
 require_once(SRC . "bd/atualizarItem.php");
 require_once(SRC . 'functions/upload.php');
 
-$idProduto_Categoria = (int) null;
 $idProduto = (int) null; 
 $nome = (string) null;
 $desenvolvedor = (string) null;
-$des = (string) null;
+$desconto = (int) null;
+$descricao = (string) null;
 $preco = (int) null;
-$idCategoria = (int) null;
+$destaque = (string) 'false';
+$idCategoria = (int) 0;
 $foto = (string) null;
 
 if(isset($_GET['id'])) {
@@ -21,42 +22,39 @@ else {
     $id = 0;
 }
 
-if(isset($_GET['tipo'])) {
-    $tipoPagina = (string) $_GET['tipo'];
-}
-else {
-    $tipoPagina = (string) null;
-}
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nome = $_POST['txtNome'];
+    $desenvolvedor = $_POST['txtDesenvolvedor'];
+    $descricao = $_POST['txtDescricao'];
+    if(isset($_POST['destaque'])){$destaque = 'true';}
+    $foto = uploadFile($_FILES['fleFoto']);
+    $preco = $_POST['txtPreco'];
+    $idCategoria = $_POST['sltGenero'];
+    $desconto = $_POST['txtDesconto'];
 
-    if($tipoPagina != "Produto_Categoria") { 
-        $nome = $_POST['txtNome'];
-        $desenvolvedor = $_POST['txtDesenvolvedor'];
-        $des = $_POST['txtDes'];
-        $preco = $_POST['txtPreco'];
-        $idCategoria = $_POST['sltGenero'];
-        $foto = uploadFile($_FILES['fleFoto']);
+    var_dump($_POST);
+    
 
-        if($nome == null || $desenvolvedor == null || $des == null || $preco == null || $idCategoria == null) {
-            echo("<script>
-                    alert('". ERRO_CAIXA_VAZIA ."');
-                    window.location.href='../produtos.php';
-                    </script>");
-        }
-        elseif(strlen($nome) > 100 || strlen($desenvolvedor) > 100) {
-            echo("<script>
-            alert('". ERRO_MAXLENGHT ."');
-            window.location.href='../produtos.php';
-            </script>");
-        }
-
-         $produto = array (
-            'idproduto'     =>      $id,
+    if($nome == null || $desenvolvedor == null || $descricao == null || $preco == null) {
+        echo("<script>
+                alert('". ERRO_CAIXA_VAZIA ."');
+                window.location.href='../produtos.php';
+                </script>");
+    }
+    elseif(strlen($nome) > 100 || strlen($desenvolvedor) > 100) {
+        echo("<script>
+        alert('". ERRO_MAXLENGHT ."');
+        window.location.href='../produtos.php';
+        </script>");
+    }
+    else {
+        $produto = array (
             'nome'          =>      $nome,
             'desenvolvedor' =>      $desenvolvedor,
-            'des'           =>      $des,
+            'descricao'           =>      $descricao,
             'preco'         =>      $preco,
+            'destaque'      =>      $destaque,
+            'desconto'      =>      $desconto,
             'idCategoria'   =>      $idCategoria,
             'foto'          =>      $foto
         );
@@ -71,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             else {
                 echo("<script>
                 alert('". BD_MSG_ERRO ."');
-              
+                window.location.href='../produtos.php';
                 </script>");
             }
         }
@@ -91,55 +89,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
     }
-
-    else {
-        $idProduto = $_POST['sltProduto'];
-        $idCategoria = $_POST['sltGenero'];
-
-        if(isset($_GET['id'])) {
-            $idProduto_Categoria = $_GET['id'];
-        }
-        else {
-            $idProduto_Categoria = 0;
-        }
-
-        $produto = array (
-            'idProduto_Categoria'   =>      $idProduto_Categoria,
-            'idproduto'             =>      $idProduto,
-            'idCategoria'           =>      $idCategoria
-        );
-
-        if(strtolower($_GET['modo']) == 'salvar') {
-            if(inserirProdutoCategoria($produto)) {
-                echo("<script>
-                alert('". BD_MSG_INSERIR ."');
-                window.location.href='../produto_categoria.php';
-                </script>");
-            }
-            else {
-                echo("<script>
-                alert('". BD_MSG_ERRO ."');
-                window.location.href='../produto_categoria.php';
-                </script>");
-            }
-        }
-        elseif(strtolower($_GET['modo']) == 'atualizar') {
-            if(editarProduto_Categoria($produto)) {
-                echo("<script>
-                alert('". BD_MSG_INSERIR ."');
-                window.location.href='../produto_categoria.php';
-                </script>");
-            }
-            else {
-                echo("<script>
-                alert('". BD_MSG_ERRO ."');
-                
-                </script>");
-            }
-        }
-
-    }
-
         
     }
 

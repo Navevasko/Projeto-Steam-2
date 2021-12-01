@@ -39,7 +39,11 @@ if(isset($_SESSION['categoria'])) {
 
         <main>
             
-            <h1> Administração de Categorias </h1>
+        <div id="titulo">
+
+            <h1>Gerenciamento de Categorias</h1>
+
+        </div>
 
             <div id="container-adm">
 

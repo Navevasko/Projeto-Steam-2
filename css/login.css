@@ -80,7 +80,7 @@ form {
     text-align: center
 }
 
-#login input[type=button] {
+#login button {
     border-radius: 15px;
     background-color: var(--button-background);
     border: unset;

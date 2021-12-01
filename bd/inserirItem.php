@@ -50,10 +50,12 @@ function inserirUsuario($usuario) {
 
 function inserirProduto($produto) {
     
-    $sql = "insert into tblProduto (
+    $sql = "insert into tblproduto (
                 nome,
                 desenvolvedor,
-                des,
+                descricao,
+                destaque,
+                desconto,
                 preco,
                 idCategoria,
                 foto
@@ -62,7 +64,9 @@ function inserirProduto($produto) {
             values (
                 '" . $produto['nome'] . "',
                 '" . $produto['desenvolvedor'] . "',
-                '" . $produto['des'] . "',
+                '" . $produto['descricao'] . "',
+                 " . $produto['destaque'] . ",
+                 " . $produto['desconto'] . ",
                  " . $produto['preco'] . ",
                  " . $produto['idCategoria'] . ",
                 '" . $produto['foto'] . "'

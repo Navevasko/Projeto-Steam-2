@@ -27,7 +27,11 @@ require_once(SRC . 'controller/exibeItens.php');
 
         <main>
             
-            <h1> Administração de Contatos </h1>
+        <div id="titulo">
+
+            <h1>Gerenciamento de Contatos</h1>
+
+        </div>
 
             <div id="container-lista">
             <table id="tblConsulta" >
