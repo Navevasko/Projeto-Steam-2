@@ -69,7 +69,7 @@ if(isset($_SESSION['usuario'])) {
                             <div class="nome-campo">
                                 <label>Senha:</label>
                             </div>
-                            <input type="<?=$tipoSenha?>" name="txtSenha" value="<?=$senha?>">
+                            <input type="<?=$tipoSenha?>" name="txtSenha" value="">
                         </div>
 
                     </div>

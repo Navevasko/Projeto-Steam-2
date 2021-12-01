@@ -1,6 +1,6 @@
 <?php
 
-    define ('SRC', $_SERVER['DOCUMENT_ROOT'] . '/ds2t20212/Guilherme/Projeto/Projeto-Steam-2/');
+    define ('SRC', $_SERVER['DOCUMENT_ROOT'] . '/Back-end/Projeto-Steam-2/');
 
     const BD_SERVER = 'localhost';
     const BD_USER = 'root';

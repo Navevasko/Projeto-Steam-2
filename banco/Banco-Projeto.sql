@@ -8,10 +8,12 @@ use dbprojeto20212t;
 CREATE TABLE tblproduto (
   idproduto int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nome varchar(100) NOT NULL,
+  foto varchar(100) NOT NULL,
   desenvolvedor varchar(100) NOT NULL,
-  des text NOT NULL,
+  descricao text NOT NULL,
+  desconto boolean NOT NULL,
   preco float NOT NULL,
-  idCategoria int not null
+  idCategoria int NOT NULL
 );
 
 alter table tblProduto
@@ -22,6 +24,12 @@ alter table tblProduto
 CREATE TABLE tblcategoria (
 	idcategoria int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome varchar(100) NOT NULL
+);
+
+create table tblProduto_Categoria (
+			idProduto_Categoria int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            idProduto int not null,
+            idCategoria int not null
 );
 
 create table tblContatos (
@@ -37,21 +45,6 @@ create table tblUsuarios (
         usuario varchar(15) not null,
         senha varchar(25) not null
 );
-
-insert into tblProduto (
-                    nome,
-                    desenvolvedor,
-                    des,
-                    preco,
-                    idCategoria
-            )
-            values (
-                'Dishnored 2',
-                'A',
-                'A',
-                 69.90,
-				23
-                 );
                  
 delete from tblProduto where idProduto = 2;
 /*Permite visualizar a estrutura criada da tabela*/

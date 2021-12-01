@@ -17,10 +17,19 @@ else {
     $id = 0;
 }
 
+$arrayCategorias = array();
+foreach($_POST as $array){
+    if(strpos($array,"#categoria") !== false){
+        $arrayCategorias[] = substr($array,11);
+    }
+}
+
+$destaque = (int) 0;
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['txtNome'];
     $desenvolvedor = $_POST['txtDesenvolvedor'];
-    $des = $_POST['txtDes'];
+    $descricao = $_POST['txtDescricao'];
     $preco = $_POST['txtPreco'];
     $idCategoria = $_POST['sltGenero'];
 
