@@ -15,6 +15,12 @@ CREATE TABLE tblproduto (
 );
 
 alter table tblProduto
+			add column desconto varchar(5),
+            add column destaque boolean;
+            
+            desc tblProduto;
+
+alter table tblProduto
 			add constraint FK_CATEGORIA_PRODUTO
 						foreign key (idCategoria)
                         references tblCategoria(idCategoria);
@@ -131,7 +137,8 @@ select tblProduto_Categoria.*, tblProduto.nome, tblProduto.foto, tblProduto.idPr
                         
 select idProduto_Categoria from tblProduto_Categoria;
 
-select tblProduto_Categoria.*, tblCategoria.nomeCategoria from tblProduto_Categoria
-                        inner join tblCategoria
-                        on tblCategoria.idCategoria = tblProduto_Categoria.idCategoria
-                        where tblProduto_Categoria.idProduto_Categoria = 3;
+update tblProduto_Categoria set
+                idProduto = 11,
+                idCategoria = 29
+
+            where idProduto_Categoria = 7;
