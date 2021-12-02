@@ -27,8 +27,9 @@ if(isset($_SESSION['produto'])) {
     $desconto = $_SESSION['produto']['desconto'];
     $preco = $_SESSION['produto']['preco'];
     $idCategoria = $_SESSION['produto']['idCategoria'];
-    $modo = 'Atualizar';
-    unset($_SESSION['categoria']);
+    $nomeCategoria = $_SESSION['produto']['nomeCategoria'];
+    $modo = (string) 'Atualizar';
+    unset($_SESSION['produto']);
 }
 
 ?>
@@ -140,7 +141,7 @@ if(isset($_SESSION['produto'])) {
                         </div>
                     </div>
 
-                    <input type="submit" value="Salvar" name="btnSubmit">
+                    <input type="submit" value="<?=$modo?>" name="btnSubmit">
                 </form>
 
             </div>

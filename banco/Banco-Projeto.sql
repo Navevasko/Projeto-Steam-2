@@ -77,7 +77,7 @@ select tblProduto.*, tblCategoria.nome from tblProduto
                         where tblProduto.idproduto = 2;
                         
                         
-<<<<<<< HEAD
+
 select idProduto_Categoria from tblProduto_Categoria;
 
 update tblProduto_Categoria set
@@ -85,6 +85,48 @@ update tblProduto_Categoria set
                 idCategoria = 29
 
             where idProduto_Categoria = 7;
-=======
+
 select * from tblCategoria;
->>>>>>> 5df6379471d05d589612aa76568d6e48ea1ab236
+
+select * from tblUsuarios;
+
+alter table tblproduto
+            add column destaque boolean not null,
+            add column desconto int not null,
+            add column descricao text not null;
+            
+desc tblproduto;
+
+select * from tblUsuarios;
+insert into tblProduto (nome, destaque, desconto, desenvolvedor, descricao, foto, preco, idCategoria ) values ('a', true, 2, 'a', 'a', 'a', 2, 21);
+insert into tblproduto (
+                nome,
+                desenvolvedor,
+                descricao,
+                destaque,
+                desconto,
+                preco,
+                idCategoria,
+                foto
+            )
+
+            values (
+                'aa',
+                'aa',
+                'ads',
+                 true,
+                 50,
+                 50,
+                 21,
+                'a'
+            );
+            
+            
+select * from tblCategoria;
+
+delete from tblProduto
+                    where idproduto = 12;
+                    
+drop table tblProduto_Categoria;
+
+select * from tblContatos;

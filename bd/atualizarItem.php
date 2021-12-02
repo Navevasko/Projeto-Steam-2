@@ -4,7 +4,7 @@ require_once('../bd/conexaoMySQL.php');
 
 function editarCategoria($arrayCategoria) {
     $sql = "update tblCategoria set 
-                nome = '" . $arrayCategoria['nome'] . "'
+                nomeCategoria = '" . $arrayCategoria['nome'] . "'
                 
                 where idCategoria = " . $arrayCategoria['id'];
 
@@ -41,11 +41,13 @@ function editarProduto($arrayProduto) {
                 nome = '" . $arrayProduto['nome'] . "',
                 foto = '" . $arrayProduto['foto'] . "',
                 desenvolvedor = '" . $arrayProduto['desenvolvedor'] . "',
-                des = '" . $arrayProduto['des'] . "',
+                descricao = '" . $arrayProduto['descricao'] . "',
+                desconto = " . $arrayProduto['desconto'] . ",
+                destaque = " . $arrayProduto['destaque'] . ",
                 preco = " . $arrayProduto['preco'] . ",
                 idCategoria = " . $arrayProduto['idCategoria'] . "
 
-                where idproduto = " . $arrayProduto['idproduto'];
+                where idproduto = " . $arrayProduto['idProduto'];
 
     $conexao = conexaoMySQL();
     

@@ -4,7 +4,7 @@ require_once('../bd/conexaoMySQL.php');
 
 function deletarCategoria($idCategoria) {
     $sql = "delete from tblCategoria
-                    where idCategoria = " . $idCategoria;
+                    where idcategoria = " . $idCategoria;
 
     $conexao = conexaoMySQL();
 

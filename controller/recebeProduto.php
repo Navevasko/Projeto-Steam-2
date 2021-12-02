@@ -31,8 +31,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $preco = $_POST['txtPreco'];
     $idCategoria = $_POST['sltGenero'];
     $desconto = $_POST['txtDesconto'];
-
-    var_dump($_POST);
     
 
     if($nome == null || $desenvolvedor == null || $descricao == null || $preco == null) {
@@ -49,6 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     else {
         $produto = array (
+            'idProduto'     =>      $id,
             'nome'          =>      $nome,
             'desenvolvedor' =>      $desenvolvedor,
             'descricao'           =>      $descricao,

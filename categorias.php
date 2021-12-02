@@ -14,7 +14,7 @@ $modo = (string) 'Salvar';
 
 if(isset($_SESSION['categoria'])) {
     $id = $_SESSION['categoria']['idcategoria'];
-    $nome = $_SESSION['categoria']['nome'];
+    $nome = $_SESSION['categoria']['nomeCategoria'];
     $modo = 'Atualizar';
     unset($_SESSION['categoria']);
 }

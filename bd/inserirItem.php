@@ -106,5 +106,28 @@ function inserirProdutoCategoria ($produto) {
     }
 }
 
+function inserirContato ($contato) {
+    $sql = "insert into tblContatos (
+        nome,
+        email,
+        celular
+    )
+    
+    values (
+        '" . $contato['nome'] . "',
+        '" . $contato['email'] . "',
+        '" . $contato['celular'] . "'
+        )";
+
+    $conexao = conexaoMySQL();
+    
+    if(mysqli_query($conexao, $sql)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 
 ?>

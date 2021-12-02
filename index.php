@@ -57,32 +57,34 @@ require_once(SRC . 'controller/exibeItens.php');
             <div id="container-produtos">
                 <div id="search-bar">
 
-                    <div id="caixaMenu"> 
+                    <div id="menu-categorias">
+                        <div id="caixaMenu"> 
+            
+                            <p>Menu</p>
         
-                        <p>Menu</p>
-    
-                        <div id="caixaSubMenu">
-    
-                            <ul id="subMenu">
+                            <div id="caixaSubMenu">
+        
+                                <ul id="subMenu">
 
-                                <?php
-                                
-                                $dadosCategorias = exibirCategorias();
+                                    <?php
+                                    
+                                    $dadosCategorias = exibirCategorias();
 
-                                while($rsCategorias = mysqli_fetch_assoc($dadosCategorias)) {
+                                    while($rsCategorias = mysqli_fetch_assoc($dadosCategorias)) {
 
-                                ?>
-    
-                                <a href="#"><li class="itemSubMenu"><?=$rsCategorias['nomeCategoria']?></li></a>
+                                    ?>
+        
+                                    <a href="#"><li class="itemSubMenu"><?=$rsCategorias['nomeCategoria']?></li></a>
 
-                                <?php
-                                    }
-                                ?>
-    
-                            </ul>
-    
-                        </div>  
-                    
+                                    <?php
+                                        }
+                                    ?>
+        
+                                </ul>
+        
+                            </div>  
+                        
+                        </div>
                     </div>
 
                     <div id="search">
@@ -103,8 +105,10 @@ require_once(SRC . 'controller/exibeItens.php');
                         <img src="<?=NOME_DIRETORIO_FILE.$rsProdutos['foto']?>" alt="">
                         <div class="texto-produto">
                             <h3><?=$rsProdutos['nome']?></h3>
-                            <p>Genero: <?=$rsProdutos['nomeCategoria']?> </p>
-                            <p>Desenvolvedora: <?=$rsProdutos['desenvolvedor']?> </p>
+                            <div class="container-texto">
+                                <p>Genero: <?=$rsProdutos['nomeCategoria']?> </p>
+                                <p>Desenvolvedora: <?=$rsProdutos['desenvolvedor']?> </p>
+                            </div>
                         </div>
                         <div class="button-preco">
                             <div class="saiba-mais">
@@ -272,13 +276,13 @@ require_once(SRC . 'controller/exibeItens.php');
                         </div>
                     </div>
                     <div id="contatos">
-                        <form action="">
+                        <form action="controller/recebeContato.php" method="post">
                             <label for=""> Nome: </label>
-                            <input type="text">
+                            <input type="text" name="txtNome">
                             <label for=""> Email: </label>
-                            <input type="email">
+                            <input type="email" name="txtEmail">
                             <label for=""> Celular: </label>
-                            <input type="text">
+                            <input type="text" name="txtCelular">
                             <button> Enviar </button>
                         </form>
                     </div>
