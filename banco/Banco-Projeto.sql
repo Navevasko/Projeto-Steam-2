@@ -3,6 +3,7 @@ create database dbprojeto20212t;
 
 /*Permite selecionar o database a ser utilizado*/
 use dbprojeto20212t;
+use dbprojeto20212t;
 
 /*Cria uma nova tabela*/
 CREATE TABLE tblproduto (
