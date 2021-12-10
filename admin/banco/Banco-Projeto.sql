@@ -12,12 +12,10 @@ CREATE TABLE tblproduto (
   desenvolvedor varchar(100) NOT NULL,
   descricao text NOT NULL,
   desconto boolean NOT NULL,
-  preco float NOT NULL,
-  idCategoria int NOT NULL
+  preco float NOT NULL
 );
 
 alter table tblProduto
-			add column desconto varchar(5),
             add column destaque boolean;
             
             desc tblProduto;
@@ -54,7 +52,7 @@ create table tblUsuarios (
 
 insert into tblCategoria (nomeCategoria) values ('Ação');
 
-insert into tblProduto (nome, foto, desenvolvedor, desconto, descricao, preco, idCategoria) values ('A', 'A', 'A', 50, 'A', 50, 1);
+insert into tblProduto (nome, foto, desenvolvedor, desconto, descricao, preco) values ('A', 'A', 'A', 50, 'A', 50);
                  
 delete from tblProduto where idProduto = 2;
 /*Permite visualizar a estrutura criada da tabela*/
@@ -95,38 +93,19 @@ alter table tblproduto
             add column desconto int not null,
             add column descricao text not null;
             
-desc tblproduto;
 
 select * from tblUsuarios;
-insert into tblProduto (nome, destaque, desconto, desenvolvedor, descricao, foto, preco, idCategoria ) values ('a', true, 2, 'a', 'a', 'a', 2, 21);
-insert into tblproduto (
-                nome,
-                desenvolvedor,
-                descricao,
-                destaque,
-                desconto,
-                preco,
-                idCategoria,
-                foto
-            )
-
-            values (
-                'aa',
-                'aa',
-                'ads',
-                 true,
-                 50,
-                 50,
-                 21,
-                'a'
-            );
             
+desc tblProduto;
             
 select * from tblCategoria;
 
-delete from tblProduto
-                    where idproduto = 12;
-                    
-drop table tblProduto_Categoria;
+select tblProduto_Categoria.*, tblProduto.*, tblCategoria.nomeCategoria from tblProduto_Categoria
 
-select * from tblContatos;
+        inner join tblProduto
+        on tblProduto.idProduto = tblProduto_Categoria.idProduto
+            
+        inner join tblCategoria
+        on tblCategoria.idCategoria = tblProduto_Categoria.idCategoria
+    
+        order by idProduto_Categoria desc;
