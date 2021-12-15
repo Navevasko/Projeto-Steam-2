@@ -23,12 +23,10 @@ function criarArrayProduto($produto) {
             'nome'          =>      $rsProduto['nome'],
             'desenvolvedor' =>      $rsProduto['desenvolvedor'],
             'preco'         =>      $rsProduto['preco'],
-            'idCategoria'   =>      $rsProduto['idCategoria'],
             'foto'          =>      $rsProduto['foto'],
             'destaque'      =>      $rsProduto['destaque'],
             'desconto'      =>      $rsProduto['desconto'],
-            'descricao'     =>      $rsProduto['descricao'],
-            'nomeCategoria' =>      $rsProduto['nomeCategoria']
+            'descricao'     =>      $rsProduto['descricao']
         );
         $cont++;
     }
@@ -39,6 +37,22 @@ function criarArrayProduto($produto) {
     else {
         return false;
     }
+}
+
+function buscarProdutoNome($nome) {
+    if($nome != null) {
+        if(!is_numeric($nome)) {
+            $dadosProdutos = buscarNomeProduto($nome);
+            return $dadosProdutos;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
+    
 }
 
 /**********************************************/
@@ -54,6 +68,11 @@ function exibirCategorias() {
 function searchCategoria($id) {
     $dadosCategoria = buscarCategoria($id);
     return $dadosCategoria;
+}
+
+function buscarProdutoCategoria($idCategoria) {
+    $dadosProdutos = buscarCategoriaProduto($idCategoria);
+    return $dadosProdutos;
 }
 
 function criarArrayCategoria($categoria) {

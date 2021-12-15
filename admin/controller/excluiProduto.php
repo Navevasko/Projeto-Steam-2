@@ -18,7 +18,7 @@ $idProduto = $_GET['id'];
     else {
         echo("<script>
                     alert('". BD_MSG_ERRO ."');
-                    
+                    window.location.href='../produtos.php';
                 </script>");
     }
 

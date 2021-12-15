@@ -46,20 +46,20 @@
 
         require_once('../controller/exibeItens.php');
 
-        $id = $args['id'];
+        $idCategoria = $args['id'];
         
         //Chama a função (na pasta controles) que vai requisitar os dados no BD
-        if($listCategoria = searchCategoria($id)){
-            if($listCategoriaArray = criarArrayCategoria($listCategoria)){
-                $listCategoriaJSON = criarJSON($listCategoriaArray);
+        if($listProduto = buscarProdutoCategoria($idCategoria)){
+            if($listProdutoArray = criarArrayProduto($listProduto)){
+                $listProdutoJSON = criarJSON($listProdutoArray);
             }
         }
 
         //Tratativa pra ver se existem dados
-        if($listCategoriaArray){
+        if($listProdutoArray){
             return $response    ->   withStatus(200)
                                 ->   withHeader('Content-Type', 'application/json')
-                                ->   write($listCategoriaJSON);
+                                ->   write($listProdutoJSON);
         }
         else {
            return $response     ->  withStatus(204)

@@ -94,7 +94,7 @@ alter table tblproduto
             add column descricao text not null;
             
 
-select * from tblUsuarios;
+select * from tblProduto;
             
 desc tblProduto;
             
@@ -109,3 +109,12 @@ select tblProduto_Categoria.*, tblProduto.*, tblCategoria.nomeCategoria from tbl
         on tblCategoria.idCategoria = tblProduto_Categoria.idCategoria
     
         order by idProduto_Categoria desc;
+        
+select tblProduto.*, tblCategoria.nomeCategoria as Genero from tblProduto_Categoria 
+	inner join tblCategoria
+		on tblProduto_Categoria.idCategoria = tblCategoria.idcategoria
+        
+	inner join tblProduto
+		on tblProduto_Categoria.idProduto = tblProduto.idProduto
+        
+	order by tblProduto.nome desc;

@@ -170,7 +170,7 @@ if(isset($_SESSION['produto'])) {
                         <td class="tblColunaImg"><img src="arquivos/<?=$rsProdutos['foto']?>"></td>
                         <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
                         <td class="tblColunas registros"><?=$rsProdutos['preco']?></td>
-                        <td class="tblColunas registros">a</td>
+                        <td class="tblColunas registros"><?=$rsProdutos['Genero']?></td>
                         <td class="tblColunas registros">
                             <a href="controller/editaProduto.php?id=<?=$rsProdutos['idproduto']?>"> 
                                 <img src="../img/icons/edit.png" alt="Editar" title="Editar" class="editar">
@@ -184,6 +184,7 @@ if(isset($_SESSION['produto'])) {
 
                     <?php
                         }
+                        
                     ?>
 
                 </table>

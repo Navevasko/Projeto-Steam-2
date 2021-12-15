@@ -5,8 +5,7 @@ require_once(SRC . 'bd/conexaoMySQL.php');
 /*******************PRODUTOS********************/ 
 
 function listarProdutos() {
-    $sql = "select *  from tblProduto
-    order by idProduto desc";
+    $sql = "select * from tblProduto";
 
     $conexao = conexaoMySQL();
 
@@ -16,10 +15,7 @@ function listarProdutos() {
 }
 
 function buscarProdutos($idProduto) {
-        $sql = "select tblProduto.*, tblCategoria.nomeCategoria from tblProduto
-                        inner join tblCategoria
-                        on tblCategoria.idCategoria = tblProduto.idCategoria
-                        where tblProduto.idproduto = " . $idProduto;
+        $sql = "select * from tblProduto where idproduto = " . $idProduto;
     
         $conexao = conexaoMySQL();
     
@@ -36,10 +32,7 @@ function buscarUltimoProduto(){
 };
 
 function buscarNomeProduto($nome) {
-    $sql = "select tblProduto.*, tblCategoria.nomeCategoria from tblProduto
-                        inner join tblCategoria
-                        on tblCategoria.idCategoria = tblProduto.idCategoria
-                        where tblProduto.nome like '" . "%" . $nome . "%'";
+    $sql = "select * from tblProduto where tblProduto.nome like '" . "%" . $nome . "%'";
     
         $conexao = conexaoMySQL();
     
@@ -78,6 +71,24 @@ function listarCategorias() {
 
 function buscarCategoria($idCategoria) {
     $sql = "select * from tblCategoria where idCategoria = " . $idCategoria;
+
+    $conexao = conexaoMySQL();
+
+    $select = mysqli_query($conexao, $sql);
+
+    return $select;
+}
+
+function buscarCategoriaProduto($idCategoria) {
+    $sql = "select tblProduto.*, tblCategoria.nomeCategoria as Genero from tblProduto_Categoria 
+	inner join tblCategoria
+		on tblProduto_Categoria.idCategoria = tblCategoria.idcategoria
+        
+	inner join tblProduto
+		on tblProduto_Categoria.idProduto = tblProduto.idProduto
+	
+    where tblCategoria.idcategoria = " . $idCategoria . "
+	order by tblProduto.nome desc";
 
     $conexao = conexaoMySQL();
 
@@ -132,15 +143,14 @@ function buscarUsuario($idUsuario) {
 /*******************PRODUTO_CATEGORIA********************/ 
 
 function listarProduto_Categoria () {
-    $sql = "select tblProduto_Categoria.*, tblProduto.nome, tblProduto.foto, tblProduto.idProduto, tblCategoria.nomeCategoria, tblCategoria.idCategoria from tblProduto_Categoria
-
-        inner join tblProduto
-        on tblProduto.idProduto = tblProduto_Categoria.idProduto
-            
-        inner join tblCategoria
-        on tblCategoria.idCategoria = tblProduto_Categoria.idCategoria
-    
-        order by idProduto_Categoria desc";
+    $sql = "select tblProduto.*, tblCategoria.nomeCategoria as Genero from tblProduto_Categoria 
+                inner join tblCategoria
+                    on tblProduto_Categoria.idCategoria = tblCategoria.idcategoria
+                    
+                inner join tblProduto
+                    on tblProduto_Categoria.idProduto = tblProduto.idProduto
+                    
+                order by tblProduto.nome desc";
 
     $conexao = conexaoMySQL();
     

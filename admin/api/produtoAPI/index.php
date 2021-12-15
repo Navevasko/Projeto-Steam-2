@@ -16,7 +16,7 @@
 
             $nome = $request->getQueryParams()['nome'];
 
-            if($listProdutos = buscarNomeProduto($nome)) {
+            if($listProdutos = buscarProdutoNome($nome)) {
                 if($listProdutosArray = criarArrayProduto($listProdutos)) {
                     $listProdutosJSON = criarJSON($listProdutosArray);
                 }
