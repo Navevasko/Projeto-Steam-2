@@ -5,7 +5,7 @@ require_once(SRC . 'bd/conexaoMySQL.php');
 /*******************PRODUTOS********************/ 
 
 function listarProdutos() {
-    $sql = "select * from tblProduto";
+    $sql = "select * from tblProduto order by idProduto desc";
 
     $conexao = conexaoMySQL();
 

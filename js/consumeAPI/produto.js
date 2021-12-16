@@ -8,9 +8,8 @@ const getProdutos = async() => {
 }
 
 const pesquisarProduto = async(event) => {
-    const pesquisa = event.target.value
-
     if(pesquisa != "") {
+        const pesquisa = event.target.value
         if(event.key == "Enter") {
             const url = `http://localhost/ds2t20212/Guilherme/Projeto/Projeto-Steam-2/admin/api/produto?nome=${pesquisa}`
             const response = await fetch(url);

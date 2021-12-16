@@ -103,7 +103,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             else {
                 echo("<script>
                 alert('". BD_MSG_ERRO ."');
-                window.location.href='../produtos.php';
+                
                 </script>");
             }
         }

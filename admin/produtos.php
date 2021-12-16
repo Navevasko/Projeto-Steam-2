@@ -26,8 +26,6 @@ if(isset($_SESSION['produto'])) {
     $descricao = $_SESSION['produto']['descricao'];
     $desconto = $_SESSION['produto']['desconto'];
     $preco = $_SESSION['produto']['preco'];
-    $idCategoria = $_SESSION['produto']['idCategoria'];
-    $nomeCategoria = $_SESSION['produto']['nomeCategoria'];
     $modo = (string) 'Atualizar';
     unset($_SESSION['produto']);
 }

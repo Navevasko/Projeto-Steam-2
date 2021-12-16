@@ -8,6 +8,8 @@
         <link rel="shortcut icon" type="image/jpg" href="img/logo.png"/>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&family=Lora&family=Nanum+Gothic:wght@400;700&family=PT+Sans:ital@0;1&family=Rubik:wght@300&display=swap" rel="stylesheet">
         <script src="js/script.js" defer></script>
+        <script src="js/slide.js" defer></script>
+        <script src="js/imagemDemo.js" defer></script>
         <script src="js/consumeAPI/main.js" type="module"></script>
         <title>Projeto</title>
     </head>
@@ -44,7 +46,14 @@
                     </a></li>
                 </ul>
             </nav>
-            <div id="banner"></div>
+            <section id="banner">
+                <div class="container-slide">
+                    <div class="action-button" id="previous"><img src="img/icons/chevron-left.png"></div>
+                    <div class="container-items" id="container-items"></div>
+                    <div class="action-button" id="next"><img src="img/icons/chevron-right.png"></div>
+                </div>
+                <div class="container-shadow"></div>
+            </section>
         </header>
 
         <main>
@@ -69,7 +78,7 @@
 
                     <div id="search">
                         <form action="">
-                            <button> <img src="img/icons/bx-cart.svg" alt=""> </button>
+                            <button> <img src="img/icons/search.svg" alt=""> </button>
                             <input type="text" id="search-box">
                         </form>
                     </div>

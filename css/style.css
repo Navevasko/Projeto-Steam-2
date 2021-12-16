@@ -6,16 +6,16 @@
 
 :root {
     font-family: 'Rubik', sans-serif;
-    --primary: #24343a;
+    --primary: #000000;
     --primary-light: #628d8f;
     --primary-dark: #3c948c;
-    --main-background: #2d4047c9;
-    --text-color: #a7b298;
-    --card-container-background: #24343a;
+    --main-background: #000000c9;
+    --text-color: #92d436;
+    --card-container-background: #000000;
     --card-background: #415c66ef;
     --scroll-background: #415c66ef;
-    --nav-background:#24343ae5;
-    --search-background: #24343ad8;
+    --nav-background:#21282be5;
+    --search-background: #000000d8;
     --button-background: #537b8aef;
 }
 
@@ -39,11 +39,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(../img/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
+
 }
 
 header {
@@ -102,6 +98,7 @@ header {
     transition: 0.5s;
     transform: scale(110%);
     color: var(--text-color);
+    background-color: var(--primary);
     border-bottom: 1px solid var(--text-color);
 }
 
@@ -136,18 +133,69 @@ header {
 }
 
 #banner {
-    width: 100%;
-    
+    width: 100vw;
+    height: 90vh;
+	max-width:100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
+.container-slide {
+    display: flex;
+	justify-content: space-between;
+	width: inherit;
+	height: 90vh;
+}
 
+.action-button{
+	font-size: 5rem;
+	z-index: 1;
+	width: 50px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+.action-button img{
+	width: 50px;
+	height: 60px;
+	filter: brightness(80%);
+}
+.action-button img:hover{
+	filter: brightness(100%);
+	cursor: pointer;
+}
+
+.container-items{
+	position: absolute;
+	display: flex;
+	width: inherit;
+	height: 90vh;
+	overflow: hidden;
+}
+
+.item{
+	width: inherit;
+	height: 700px;
+	transition: all 1s;
+}
+.item:first-child{
+	margin-left: -100%;
+}
+.item img{
+	width: inherit;
+	height: 700px;
+	object-fit: cover;
+	object-position: top;
+}
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-    width: 95%;
+    width: 100%;
     gap: 45px;
     background-color: var(--main-background);
     min-height: 1000px;
@@ -161,7 +209,6 @@ main {
 
 #search-bar {
     display: flex;
-    align-content: center;
     justify-content: space-between;
     padding: 5px 10px 5px 10px;
     width: inherit;
@@ -235,7 +282,7 @@ main {
 
 
 #search {
-    width: 350px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -250,13 +297,12 @@ main {
 }
 
 #search input {
-    width: 250px;
-    height: 30px;
-    outline: unset;
-    font-size: 1.2em;
-    padding-left: 5px;
+    width: 330px;
+    height: 40px;
+    font-size: 1.4em;
+    padding-left: 13px;
     border-radius: 15px;
-    border:unset;
+    border: unset;
     outline: unset;
     background-color: var(--primary-light);
 }
@@ -319,12 +365,11 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 10px;
-    gap: 25px;
+    gap: 10px;
     width: 100%;
-    height: 150px;
-    margin-top: -25px;
+    height: 170px;
+    margin-top: -10px;
 }
 
 .texto-produto h3 {
@@ -339,11 +384,19 @@ main {
 }
 
 .container-texto {
-    width: 360px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
+    width: 370px;
+    height: 170px;
+    padding-right: 15px;
+    overflow: overlay;
+}
+
+.container-texto::-webkit-scrollbar {
+    width: 10px;
+}
+  
+.container-texto::-webkit-scrollbar-thumb {
+    background-color: var(--button-background);
+    border-radius: 20px;
 }
 
 .button-preco {

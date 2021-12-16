@@ -44,8 +44,7 @@ function editarProduto($arrayProduto) {
                 descricao = '" . $arrayProduto['descricao'] . "',
                 desconto = " . $arrayProduto['desconto'] . ",
                 destaque = " . $arrayProduto['destaque'] . ",
-                preco = " . $arrayProduto['preco'] . ",
-                idCategoria = " . $arrayProduto['idCategoria'] . "
+                preco = " . $arrayProduto['preco'] . "
 
                 where idproduto = " . $arrayProduto['idProduto'];
 

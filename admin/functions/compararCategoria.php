@@ -6,7 +6,7 @@ function compararCategoria($idProduto,$idCategoria){
     if($idProduto != null){
        $produtoCategoria = selectProdutoCategoria($idProduto);
         while($rsProduto = mysqli_fetch_assoc($produtoCategoria)){
-            if(strpos($idCategoria, $rsProduto['id_categoria']) !== false){
+            if(strpos($idCategoria, $rsProduto['idCategoria']) !== false){
                 return "checked";   
             }
         }    
